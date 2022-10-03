@@ -16,5 +16,14 @@
       <description>Enabling the use of multiple modalities while prompting Stable Diffusion.</description>
     </item>
     
+    <item>
+      <title>Understanding Stable Diffusion</title>
+      <link>https://nihaljn.github.io/posts/understanding-stable-diffusion/</link>
+      <pubDate>Sat, 01 Oct 2022 20:53:39 -0400</pubDate>
+      
+      <guid>https://nihaljn.github.io/posts/understanding-stable-diffusion/</guid>
+      <description>A deep dive into the method and code of Stable Diffusion.</description>
+    </item>
+    
   </channel>
 </rss>
