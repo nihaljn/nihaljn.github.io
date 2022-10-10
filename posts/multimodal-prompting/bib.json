@@ -1,6 +1,6 @@
 [
   {
-    "DOI": "10.48550/arxiv.2112.10752",
+    "DOI": "10.48550/ARXIV.2112.10752",
     "URL": "https://arxiv.org/abs/2112.10752",
     "author": [
       {
@@ -38,7 +38,7 @@
     "type": ""
   },
   {
-    "DOI": "10.48550/arxiv.2204.06125",
+    "DOI": "10.48550/ARXIV.2204.06125",
     "URL": "https://arxiv.org/abs/2204.06125",
     "author": [
       {
@@ -76,7 +76,7 @@
     "type": ""
   },
   {
-    "DOI": "10.48550/arxiv.2206.10789",
+    "DOI": "10.48550/ARXIV.2206.10789",
     "URL": "https://arxiv.org/abs/2206.10789",
     "author": [
       {
@@ -162,7 +162,7 @@
     "type": ""
   },
   {
-    "DOI": "10.48550/arxiv.2203.13131",
+    "DOI": "10.48550/ARXIV.2203.13131",
     "URL": "https://arxiv.org/abs/2203.13131",
     "author": [
       {
@@ -205,7 +205,7 @@
     "type": ""
   },
   {
-    "DOI": "10.48550/arxiv.2208.01618",
+    "DOI": "10.48550/ARXIV.2208.01618",
     "URL": "https://arxiv.org/abs/2208.01618",
     "author": [
       {
@@ -262,7 +262,7 @@
         "given": "Jade"
       }
     ],
-    "container-title": "Proceedings of the 21st annual international ACM SIGIR conference on research and development in information retrieval",
+    "publisher": "Proceedings of the 21st annual international ACM SIGIR conference on research and development in information retrieval",
     "id": "mmr",
     "issued": {
       "date-parts": [
@@ -273,7 +273,73 @@
     },
     "page": "335-336",
     "title": "The use of MMR, diversity-based reranking for reordering documents and producing summaries",
-    "type": "paper-conference"
+    "type": ""
+  },
+  {
+    "DOI": "10.48550/arxiv.2103.00020",
+    "URL": "https://arxiv.org/abs/2103.00020",
+    "author": [
+      {
+        "family": "Radford",
+        "given": "Alec"
+      },
+      {
+        "family": "Kim",
+        "given": "Jong Wook"
+      },
+      {
+        "family": "Hallacy",
+        "given": "Chris"
+      },
+      {
+        "family": "Ramesh",
+        "given": "Aditya"
+      },
+      {
+        "family": "Goh",
+        "given": "Gabriel"
+      },
+      {
+        "family": "Agarwal",
+        "given": "Sandhini"
+      },
+      {
+        "family": "Sastry",
+        "given": "Girish"
+      },
+      {
+        "family": "Askell",
+        "given": "Amanda"
+      },
+      {
+        "family": "Mishkin",
+        "given": "Pamela"
+      },
+      {
+        "family": "Clark",
+        "given": "Jack"
+      },
+      {
+        "family": "Krueger",
+        "given": "Gretchen"
+      },
+      {
+        "family": "Sutskever",
+        "given": "Ilya"
+      }
+    ],
+    "id": "clip",
+    "issued": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "Learning transferable visual models from natural language supervision",
+    "type": ""
   },
   {
     "author": [
@@ -302,6 +368,7 @@
     "number": "Version 1.0",
     "publisher": "Stability AI",
     "title": "Simulacra aesthetic captions",
-    "type": "report"
+    "type": "report",
+    "URL": "https://github.com/JD-P/simulacra-aesthetic-captions"
   }
 ]

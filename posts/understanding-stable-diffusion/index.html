@@ -233,8 +233,8 @@
 
   <div class="post-content"><p>This article serves to explain the Stable Diffusion [7] model and some of its implementation details. <em>Note: The Stable Diffusion model consists of several blocks carefully engineered together in a large code-base. Towards maintaining ease of simplicity, this article skips over unnecessary lines of code or modifies the code in some way without altering its logic.</em></p>
 <h2 id="architecture-details">Architecture Details<a hidden class="anchor" aria-hidden="true" href="#architecture-details">#</a></h2>
-<figure>
-    <img loading="lazy" src="images/model_arch.png"
+<figure class="align-center ">
+    <img loading="lazy" src="images/model_arch.png#center"
          alt="Figure 1. The Stable Diffusion model consists of multiple stages across several blocks as shown here. The figure shows one possible data flow path labelled in roman numerals $ I - IV $ in that order; this sequence also resembles the training of the model. The latent representation of an encoded image is gradually randomized by injecting noise in a Markov chain. This is followed by predicting the noise (and the denoised latent representation) conditioned on some information about what has to be recovered &amp;ndash; in this case, a text description of the original image. Finally, the predicted denoised latent representation can be decoded to reconstruct the original image."/> <figcaption>
             <p>Figure 1. The Stable Diffusion model consists of multiple stages across several blocks as shown here. The figure shows one possible data flow path labelled in roman numerals $ I - IV $ in that order; this sequence also resembles the training of the model. The latent representation of an encoded image is gradually randomized by injecting noise in a Markov chain. This is followed by predicting the noise (and the denoised latent representation) conditioned on some information about what has to be recovered &ndash; in this case, a text description of the original image. Finally, the predicted denoised latent representation can be decoded to reconstruct the original image.</p>
         </figcaption>
