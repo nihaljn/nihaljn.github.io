@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head>
-	<meta name="generator" content="Hugo 0.104.3" /><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Nihal Jain</title>
-
-<meta name="description" content="">
+<title>ContraCLM: Contrastive Learning For Causal Language Model | Nihal Jain</title>
+<meta name="keywords" content="">
+<meta name="description" content="ContraCLM: Contrastive Learning For Causal Language Model - Nihal Jain">
 <meta name="author" content="">
-<link rel="canonical" href="https://nihaljn.github.io/">
+<link rel="canonical" href="https://nihaljn.github.io/publications/acl2023/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.4d675597d7779c43938bc2b0fde114ce6f1e1887a4ec2b7891a9f1d97d72a85f.css" integrity="sha256-TWdVl9d3nEOTi8Kw/eEUzm8eGIek7Ct4kanx2X1yqF8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -19,7 +20,6 @@
 <link rel="mask-icon" href="https://nihaljn.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://nihaljn.github.io/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -85,31 +85,70 @@ if (!doNotTrack) {
 	gtag('config', 'G-9BZ254GT1K', { 'anonymize_ip': false });
 }
 </script>
-<meta property="og:title" content="Nihal Jain" />
+<meta property="og:title" content="ContraCLM: Contrastive Learning For Causal Language Model" />
 <meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://nihaljn.github.io/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nihaljn.github.io/publications/acl2023/" /><meta property="article:section" content="publications" />
+<meta property="article:published_time" content="2023-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-01T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Nihal Jain"/>
+<meta name="twitter:title" content="ContraCLM: Contrastive Learning For Causal Language Model"/>
 <meta name="twitter:description" content=""/>
+
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nihal Jain",
-  "url": "https://nihaljn.github.io/",
-  "description": "",
-  "thumbnailUrl": "https://nihaljn.github.io/scs-favicon.ico",
-  "sameAs": [
-      "mailto:nihalj@cs.cmu.edu", "https://github.com/nihaljn", "https://linkedin.com/in/nihaljn", "https://twitter.com/Nihal_Jain_1"
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Publications",
+      "item": "https://nihaljn.github.io/publications/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "ContraCLM: Contrastive Learning For Causal Language Model",
+      "item": "https://nihaljn.github.io/publications/acl2023/"
+    }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ContraCLM: Contrastive Learning For Causal Language Model",
+  "name": "ContraCLM: Contrastive Learning For Causal Language Model",
+  "description": "",
+  "keywords": [
+    
+  ],
+  "articleBody": "",
+  "wordCount" : "0",
+  "inLanguage": "en",
+  "datePublished": "2023-07-01T00:00:00Z",
+  "dateModified": "2023-07-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nihaljn.github.io/publications/acl2023/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nihal Jain",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nihaljn.github.io/scs-favicon.ico"
+    }
+  }
 }
 </script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -167,66 +206,24 @@ if (!doNotTrack) {
         </ul>
     </nav>
 </header>
-<main class="main"><div class="profile">
-    <div class="profile_inner">
-        
-        <div class="text-custom">
-            <article class="first-entry home-info">
-                <header class="entry-header">
-                    <h1>Hello!</h1>
-                </header>
-                <div class="entry-content">
-                    Welcome to my personal website! My name is Nihal. I am an Applied Scientist in the <a href='https://aws.amazon.com/codewhisperer/' style='color:#49a6fc'>AWS CodeWhisperer</a> team where I work on code generation with large language models. <br><br> I recently graduated from Carnegie Mellon University (CMU), with my MS in Machine Learning. Prior to that, I obtained my BE in Computer Science from BITS, Pilani - Hyderabad Campus. <br><br> My research interests lie in unsupervised learning and Natural Language Processing (NLP). I am also excited about reinforcement learning and optimization.
+<main class="main">
 
-                </div>
-                <footer class="entry-footer">
-                    <div class="social-icons">
-    <a href="mailto:nihalj@cs.cmu.edu" target="_blank" rel="noopener noreferrer me" title="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-    <polyline points="22,6 12,13 2,6"></polyline>
-</svg>
-    </a>
-    <a href="https://github.com/nihaljn" target="_blank" rel="noopener noreferrer me" title="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path
-        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-    </path>
-</svg>
-    </a>
-    <a href="https://linkedin.com/in/nihaljn" target="_blank" rel="noopener noreferrer me" title="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-</svg>
-    </a>
-    <a href="https://twitter.com/Nihal_Jain_1" target="_blank" rel="noopener noreferrer me" title="Twitter">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path
-        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-    </path>
-</svg>
-    </a>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      ContraCLM: Contrastive Learning For Causal Language Model
+    </h1>
+    <div class="post-meta"><span title='2023-07-01 00:00:00 +0000 UTC'>July 1, 2023</span>
+
 </div>
+  </header> 
 
-                </footer>
-            </article> 
-            </div>
-
-        <div class="img-custom">
-        <img draggable="false" src="https://nihaljn.github.io/profile.png" alt="Nihal Jain" title="Nihal Jain"
-            height="150" width="150" />
-        </div>
-
-        
-    </div>
-</div>
-
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
     </main>
     
 <footer class="footer">
@@ -296,6 +293,53 @@ if (!doNotTrack) {
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

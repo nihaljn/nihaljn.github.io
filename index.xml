@@ -6,7 +6,16 @@
     <description>Recent content on Nihal Jain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ContraCLM: Contrastive Learning For Causal Language Model</title>
+      <link>https://nihaljn.github.io/publications/acl2023/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://nihaljn.github.io/publications/acl2023/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>MultiViz: Towards Visualizing and Understanding Multimodal Models</title>
       <link>https://nihaljn.github.io/publications/iclr2023/</link>
