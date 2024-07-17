@@ -6,7 +6,16 @@
     <description>Recent content on Nihal Jain</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On Mitigating Code LLM Hallucinations with API Documentation</title>
+      <link>https://nihaljn.github.io/publications/dag2024/</link>
+      <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://nihaljn.github.io/publications/dag2024/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CrossCodeEval: A Diverse and Multilingual Benchmark for Cross-File Code Completion</title>
       <link>https://nihaljn.github.io/publications/neurips2023/</link>
