@@ -4,80 +4,65 @@
     <title>Publications on Nihal Jain</title>
     <link>https://nihaljn.github.io/publications/</link>
     <description>Recent content in Publications on Nihal Jain</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.129.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://nihaljn.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nihaljn.github.io/publications/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On Mitigating Code LLM Hallucinations with API Documentation</title>
       <link>https://nihaljn.github.io/publications/dag2024/</link>
       <pubDate>Sat, 13 Jul 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/dag2024/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CrossCodeEval: A Diverse and Multilingual Benchmark for Cross-File Code Completion</title>
       <link>https://nihaljn.github.io/publications/neurips2023/</link>
       <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/neurips2023/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ContraCLM: Contrastive Learning For Causal Language Model</title>
       <link>https://nihaljn.github.io/publications/acl2023/</link>
       <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/acl2023/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MultiViz: Towards Visualizing and Understanding Multimodal Models</title>
       <link>https://nihaljn.github.io/publications/iclr2023/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/iclr2023/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Self-supervised Multi-view Disentanglement for Expansion of Visual Collections</title>
       <link>https://nihaljn.github.io/publications/wsdm2023/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/wsdm2023/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Generating Compositional Color Representations from Text</title>
       <link>https://nihaljn.github.io/publications/cikm2021/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/cikm2021/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Inspiration Retrieval for Visual Exploration</title>
       <link>https://nihaljn.github.io/publications/neurips2021/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/neurips2021/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>A novel approach to use semantic segmentation based deep learning networks to classify multi-temporal SAR data</title>
       <link>https://nihaljn.github.io/publications/geocarto2020/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://nihaljn.github.io/publications/geocarto2020/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
