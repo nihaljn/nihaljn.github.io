@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nihaljn.github.io/posts/language-model-reasoning-in-base64/</loc>
+    <lastmod>2024-10-26T14:19:38-04:00</lastmod>
+  </url><url>
     <loc>https://nihaljn.github.io/</loc>
-    <lastmod>2024-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-26T14:19:38-04:00</lastmod>
+  </url><url>
+    <loc>https://nihaljn.github.io/posts/</loc>
+    <lastmod>2024-10-26T14:19:38-04:00</lastmod>
   </url><url>
     <loc>https://nihaljn.github.io/publications/dag2024/</loc>
     <lastmod>2024-07-13T00:00:00+00:00</lastmod>
@@ -24,9 +30,6 @@
     <lastmod>2023-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://nihaljn.github.io/posts/multimodal-prompting/</loc>
-    <lastmod>2022-10-01T20:56:16-04:00</lastmod>
-  </url><url>
-    <loc>https://nihaljn.github.io/posts/</loc>
     <lastmod>2022-10-01T20:56:16-04:00</lastmod>
   </url><url>
     <loc>https://nihaljn.github.io/publications/cikm2021/</loc>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js" integrity="sha384-........" crossorigin="anonymous"></script>
+<script>
+MathJax = {
+    tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+    },
+    svg: {
+    fontCache: 'global'
+    }
+};
+</script>
+
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Language Model Reasoning in Base64 | Nihal Jain</title>
+<meta name="keywords" content="">
+<meta name="description" content="Evaluating the abilities of language models to reason in base64">
+<meta name="author" content="Nihal Jain">
+<link rel="canonical" href="https://nihaljn.github.io/posts/language-model-reasoning-in-base64/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3260c7d86dded00a0356e1332731a44850d2024a5d98cfb01af5c1b875f25a19.css" integrity="sha256-MmDH2G3e0AoDVuEzJzGkSFDSAkpdmM&#43;wGvXBuHXyWhk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nihaljn.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nihaljn.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://nihaljn.github.io/posts/language-model-reasoning-in-base64/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BZ254GT1K"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9BZ254GT1K');
+        }
+      </script>
+    
+  
+
+<meta property="og:title" content="Language Model Reasoning in Base64" />
+<meta property="og:description" content="Evaluating the abilities of language models to reason in base64" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nihaljn.github.io/posts/language-model-reasoning-in-base64/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-10-26T14:19:38-04:00" />
+<meta property="article:modified_time" content="2024-10-26T14:19:38-04:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Language Model Reasoning in Base64"/>
+<meta name="twitter:description" content="Evaluating the abilities of language models to reason in base64"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://nihaljn.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Language Model Reasoning in Base64",
+      "item": "https://nihaljn.github.io/posts/language-model-reasoning-in-base64/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Language Model Reasoning in Base64",
+  "name": "Language Model Reasoning in Base64",
+  "description": "Evaluating the abilities of language models to reason in base64",
+  "keywords": [
+    
+  ],
+  "articleBody": "Note: Supporting code and data are available here.\nLet’s say that reasoning is the process of manipulating known information using a logical process to arrive at valid conclusions. Large Language Models (LLMs) like Claude 3.5 Sonnet or GPT-4o have demonstrated strong reasoning abilities in literary, mathematical and various other domains where humans have performed well, primarily due to their innate abilities to reason. But whether LLMs reason in ways similar to humans’ is not well understood. This post explores some experiments that test for similarities between human and LLM mathematical reasoning, in how they generalize across languages.\nFigure 1. An illustration of how certain types of reasoning is independent of language. A problem posed in English (orange) or French (purple) evokes the same reasoning process, leading to the same answer in different languages.\nHumans’ abilities to solve math problems is independent of language – if you can (or cannot) solve a problem stated in English, and if you understand, say French, you will (or will not) be able to solve the same problem presented to you in French (see Figure 1). In other words, the set of problems solvable by a human is the same across various languages. While I only have my human experience as evidence to support this claim, I believe this to be true: in solving a problem (e.g., fifty two times two), we naturally distill the problem into symbolic abstractions (numbers, operators), and solve the problem by manipulating these symbols (add the five, carry the one) using a logical process (addition algorithm). This process of mathemetical reasoning is independent of the language in which the problem was posed, and I would like to find if this is the case for LLMs, like GPT-4o, as well.\nExperiments There are many experimental directions to take on from this point, but I will stick to a simple setup involving (1) a problem domain that GPT-4o can solve in some language, and (2) a language that GPT-4o can understand but has (to some degree of confidence, of course) not been used in the training data to solve math problems. We can then evaluate GPT-4o’s ability to solve problems in this new language and compare it to its performance in the original language.\nFor simplicity, I choose two-operand addition for (1) and base64 for (2). In what follows, I show that GPT-4o can do two-operand addition up to 8 digits almost perfectly in English but struggles to do so in base64. I follow this up with some attempts at enabling reasoning in base64 using few-shot and chain-of-thought (CoT) prompting.\nGPT-4o solves addition in English Let’s first evaluate GPT-4o’s ability to solve addition problems in English. I randomly sample two operands with at least $n$-digits and ask GPT-4o to add these numbers. An example prompt is shown below:\n1 2 3 4 5 Solve the following arithmetic problem. The only line of your response should be of the following format: 'Answer: $NUMBER' (without quotes) where NUMBER is the answer to the problem. 40130604 + 24387343 = GPT-4o’s response to the above prompt is:\n1 Answer: 64517947 which is correct.\nThis process is repeated for $n=1, 2, 4, 8$. The results are summarized in Table 1.\nTask 1 digit 2 digit 4 digit 8 digit Addition (English) 100% 100% 100% 97.0% Table 1. Accuracy on $n$-digit addition with two operands when the problem is posed in English. GPT-4o can (almost) perfectly solve this task.\nThis shows that we have picked a task that GPT-4o has the ability to do well in English. How GPT-4o does this is a different matter (e.g., statistical correlations, addition circuits, etc.), and not of concern here.\nGPT-4o “understands” Base64 Let’s also separately establish that GPT-4o “understands” base64. Since it is unclear what this means, I pick a simple task that requires familiarity with base64 and test GPT-4o’s ability to solve the task: I ask GPT-4o to decode the base64-encoded version of the problem statements from the previous section, and check for the accuracy in recovering the original string. The results are summarized in Table 2.\nTask 1 digit 2 digit 4 digit 8 digit Translation (Base64 to English) 100% 94.0% 98.0% 97.0% Table 2. Accuracy on decoding base64-encoded $n$-digit addition problems. GPT-4o can decode base64-encoded strings with high accuracy.\nUpon manual inspection, it was found that almost all the errors were quite minor: e.g., all the missing 6% for 2-digit numbers were due to GPT-4o missing a $ in the base64-encoded string. Overall, this is a good indication that GPT-4o has some understanding of base64. So, can GPT-4o reason in base64?\nGPT-4o cannot solve addition in Base64 I evaluate GPT-4o’s ability to solve addition problems in base64. The same problems as before are posed to GPT-4o, but this time, the problem statements are encoded in base64, and GPT-4o is instructed to respond in base64 in the system prompt. GPT-4o’s response is decoded to check for accuracy (if decoding fails for any reason, it is marked as a failure).\nI show an example of the base64-encoded version of the above prompt below:\n1 U29sdmUgdGhlIGZvbGxvd2luZyBhcml0aG1ldGljIHByb2JsZW0uIFRoZSBvbmx5IGxpbmUgb2YgeW91ciByZXNwb25zZSBzaG91bGQgYmUgb2YgdGhlIGZvbGxvd2luZyBmb3JtYXQ6ICdBbnN3ZXI6ICROVU1CRVInICh3aXRob3V0IHF1b3Rlcykgd2hlcmUgTlVNQkVSIGlzIHRoZSBhbnN3ZXIgdG8gdGhlIHByb2JsZW0uCgo0MDEzMDYwNCArIDI0Mzg3MzQzID0g GPT-4o’s response, originally in base64 and decoded, is shown below:\n1 2 3 4 5 ## Original QW5zd2VyOiA2NDU0OTM0NyA= ## Decoded Answer: 64549347 So while GPT-4o was able to follow the instruction of formatting the answer appropriately in base64, it was not able to solve the problem correctly. The complete set of results is shown in Table 3.\nTask 1 digit 2 digit 4 digit 8 digit Addition (English) 100% 100% 100% 97.0% Addition (Base64) 80.0% 79.0% 28.5% 3.0% Table 3. Accuracy on $n$-digit addition with two operands when the problem is posed in base64. GPT-4o struggles to solve this task.\nThe results show that GPT-4o’s ability to solve addition problems in base64 is significantly worse than in English. Further, the accuracy drops significantly as the number of digits increases. This suggests that GPT-4o’s reasoning abilities do not generalize across languages (in this case to base64), at least in the context of mathematical reasoning.\nAttempts at enabling reasoning in Base64 Recent works have discussed many techniques to elicit better reasoning from LLMs. In this section, I try to use two of these: few-shot ( Citation: Brown, Mann et al., 2020 Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I. \u0026 Amodei, D. (2020). Language models are few-shot learners. https://arxiv.org/abs/2005.14165. ) and chain-of-thought ( Citation: Wei, Wang et al., 2023 Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q. \u0026 Zhou, D. (2023). Chain-of-thought prompting elicits reasoning in large language models. https://arxiv.org/abs/2201.11903. ) prompting, to improve GPT-4o’s performance on addition in base64.\nChain-of-thought (CoT) Prompting We can let GPT-4o elaborate on intermediate steps before giving the answer. But in which language should GPT-4o generate the CoT tokens? In my experiments, I tried both, English and base64, by using language-specific system prompts:\n1 2 3 4 5 6 7 8 9 ## System prompt for English CoT You are a helpful assistant who can understand and respond only in base64. You think step-by-step in English within \u003cthoughts\u003e tags before following instructions. ## System prompt for base64 CoT You are a helpful assistant who can understand and respond only in base64. You think step-by-step in base64 within \u003cthoughts\u003e tags before following instructions. and found some interesting results. But first, let’s look at some chains of thought generated by GPT-4o. For the same problem as above, GPT-4o generated the following English CoT:\n1 2 3 4 5 6 7 8 9 10 \u003cthoughts\u003eTo solve the arithmetic problem, I need to add the two numbers provided: 40130604 and 24387343. I will perform the addition step-by-step.\u003c/thoughts\u003e 40130604 +24387343 ----------- 64517947 \u003cthoughts\u003eThe sum of 40130604 and 24387343 is 64517947. I will now encode this answer in base64 format.\u003c/thoughts\u003e and the following base64 CoT:\n1 2 3 4 5 6 7 8 9 10 11 12 13 ## Original PHRob3VnaHRzPlN0YXJ0IGJ5IGNvbnZlcnRpbmcgdGhlIG51bWJlcnMgaW50byBiYXNlNjQuCjQwMTMwNjA0IGluIGJhc2U2NDogaXMgdGhlIHN0cmluZyAnNDAxMzA2MDQnLgoKMjQzODczNDMgaW4gYmFzZTY0IGlzIHRoZSBzdHJpbmcgJzI0Mzg3MzQzJy4KCkFkZCB0aGVzZSB0d28gYmFzZTY0IHN0cmluZ3MgdG9nZXRoZXIgdG8gZmluZCB0aGUgc3VtLgo0MDEzMDYwNCArIDI0Mzg3MzQzID0gNjQwMTk5NDcKClRoZSBzdW0gaW4gYmFzZTY0IGlzICc2NDAxOTk0NycuPC90aG91Z2h0cz4KCkFuc3dlcjogNjQwMTk5NDc= ## Decoded \u003cthoughts\u003eStart by converting the numbers into base64. 40130604 in base64: is the string '40130604'. 24387343 in base64 is the string '24387343'. Add these two base64 strings together to find the sum. 40130604 + 24387343 = 64019947 The sum in base64 is '64019947'.\u003c/thoughts\u003e So GPT-4o had the base64 representations of the operands correct but only failed at the addition stage. Whatever reasoning allowed GPT-4o to answer the question in English, did not also operate in base64! The complete results are summarized in Table 4.\nTask 1 digit 2 digit 4 digit 8 digit Addition (English) 100% 100% 100% 97.0% Addition (Base64) 80.0% 79.0% 28.5% 3.0% CoT Prompting Addition (Base64; English CoT) 77.33% 92.0% 93.0% 92.5% Addition (Base64; Base64 CoT) 82.67% 59.0% 23.5% 1.50% Table 4. Accuracy on $n$-digit addition with CoT prompting.\nKey observations include:\nEnglish CoT allows GPT-4o to reason almost as well as solving the problem in English; this is expected as (a) GPT-4o is probably trained strongly to generate CoT in English, and (b) GPT-4o seems to approach this by translating the problem to English and back-translating the answer to base64 in the CoT.\nAllowing GPT-4o to generate a base64 CoT does worse than the baseline of having no CoT at all! In many cases (like the one shown above), the decoded base64 showed that GPT-4o is able to understand the task and identify the operands correctly but mainly falters at the addition step.\nFew-shot Prompting Another trick to enable better reasoning involves showing a few demonstrations to the model, before letting it respond. The few-shot demonstrations here (held-out from the test set) are in base64 and “warm-up” the model to perform the task at hand. In my experiments, I tried 3-shot prompting, though it might be useful to also ablate the number of demonstrations. The results are shown in Table 5 alongwith other experiments for comparison.\nTask 1 digit 2 digit 4 digit 8 digit Addition (English) 100% 100% 100% 97.0% Addition (Base64) 80.0% 79.0% 28.5% 3.0% CoT Prompting Addition (Base64; English CoT) 77.33% 92.0% 93.0% 92.5% 3-shot Prompting Addition (Base64; 3-Shot) 97.33% 96.0% 54.50% 11.50% Table 5. Accuracy on $n$-digit addition with 3-shot prompting. Results with other methods shown for comparison.\nFew-shot prompting improves performance over the baseline (row 2) significantly, especially for 1- and 2-digit addition. Further, few-shot prompting improves performance for 1- and 2-digit addition over CoT prompting, but falls short for 4- and 8-digit addition. This suggests that while few-shot prompting is able to steer the model to do arithmetic for easier tasks, it is not able to help the model reason for harder tasks. It would be an interesting follow-up to investigate this phenomenon further – what is few-shot prompting doing differently between the easy and hard tasks?\nConclusion I started out by asking if LLMs, like GPT-4o, generalize their reasoning abilities across langauges as humans do. In the context of simple arithmetic problems, I found that while GPT-4o understands base64 well, it does not generalize its reasoning abilities to base64. I showed that CoT and few-shot prompting potentially address this, but not consistently across different settings. This is a preliminary investigation and there are many directions to explore further including, but not limited to:\nHow do these findings hold up under other experimental settings: different languages, tasks, models, etc.? Can we characterize the nature of reasoning and languages where generalization of skills occurs? Why do methods like few-shot prompting and CoT not work consistently across different settings? Can we disentangle reasoning from language? Will this hurt or help the model’s performance and under what settings? These questions might form the basis for subsequent posts or research, but for now, I am positively excited about research towards understanding reasoning in LLMs and how they resemeble or differ from human reasoning.\nReferences Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q. \u0026 Zhou, D. (2023). Chain-of-thought prompting elicits reasoning in large language models. https://arxiv.org/abs/2201.11903. Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I. \u0026 Amodei, D. (2020). Language models are few-shot learners. https://arxiv.org/abs/2005.14165. ",
+  "wordCount" : "2094",
+  "inLanguage": "en",
+  "datePublished": "2024-10-26T14:19:38-04:00",
+  "dateModified": "2024-10-26T14:19:38-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "Nihal Jain"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nihaljn.github.io/posts/language-model-reasoning-in-base64/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nihal Jain",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nihaljn.github.io/scs-favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nihaljn.github.io/" accesskey="h" title="Nihal Jain (Alt + H)">Nihal Jain</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nihaljn.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nihaljn.github.io/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nihaljn.github.io/Nihal_Jain_Resume.pdf" title="Resume">
+                    <span>Resume</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Language Model Reasoning in Base64
+    </h1>
+    <div class="post-description">
+      Evaluating the abilities of language models to reason in base64
+    </div>
+    <div class="post-meta"><span title='2024-10-26 14:19:38 -0400 EDT'>October 26, 2024</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Nihal Jain
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#experiments" aria-label="Experiments">Experiments</a><ul>
+                        
+                <li>
+                    <a href="#gpt-4o-solves-addition-in-english" aria-label="GPT-4o solves addition in English">GPT-4o solves addition in English</a></li>
+                <li>
+                    <a href="#gpt-4o-understands-base64" aria-label="GPT-4o &ldquo;understands&rdquo; Base64">GPT-4o &ldquo;understands&rdquo; Base64</a></li>
+                <li>
+                    <a href="#gpt-4o-cannot-solve-addition-in-base64" aria-label="GPT-4o cannot solve addition in Base64">GPT-4o cannot solve addition in Base64</a></li>
+                <li>
+                    <a href="#attempts-at-enabling-reasoning-in-base64" aria-label="Attempts at enabling reasoning in Base64">Attempts at enabling reasoning in Base64</a><ul>
+                        
+                <li>
+                    <a href="#chain-of-thought-cot-prompting" aria-label="Chain-of-thought (CoT) Prompting">Chain-of-thought (CoT) Prompting</a></li>
+                <li>
+                    <a href="#few-shot-prompting" aria-label="Few-shot Prompting">Few-shot Prompting</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a></li>
+                <li>
+                    <a href="#references" aria-label="References">References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><em>Note: Supporting code and data are available <a href="https://github.com/nihaljn/lm-reasoning-base64">here</a>.</em></p>
+<p>Let&rsquo;s say that <strong>reasoning</strong> is the process of manipulating known information using a logical process to arrive at valid conclusions. Large Language Models (LLMs) like Claude 3.5 Sonnet or GPT-4o have demonstrated strong reasoning abilities in literary, mathematical and various other domains where humans have performed well, primarily due to their innate abilities to reason. But whether LLMs reason in ways similar to humans&rsquo; is not well understood. This post explores some experiments that test for similarities between human and LLM mathematical reasoning, in how they generalize across languages.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="images/multilingual-reasoning.png#center"
+         alt="Figure 1. An illustration of how certain types of reasoning is independent of language. A problem posed in English (orange) or French (purple) evokes the same reasoning process, leading to the same answer in different languages."/> <figcaption>
+            <p>Figure 1. An illustration of how certain types of reasoning is independent of language. A problem posed in English (orange) or French (purple) evokes the same reasoning process, leading to the same answer in different languages.</p>
+        </figcaption>
+</figure>
+
+<p>Humans&rsquo; abilities to solve math problems is independent of language &ndash; if you can (or cannot) solve a problem stated in English, and if you understand, say French, you will (or will not) be able to solve the same problem presented to you in French (see Figure 1). In other words, the set of problems solvable by a human is the same across various languages. While I only have my human experience as evidence to support this claim, I believe this to be true: in solving a problem (<em>e.g., fifty two times two</em>), we naturally distill the problem into symbolic abstractions (<em>numbers, operators</em>), and solve the problem by manipulating these symbols (<em>add the five, carry the one</em>) using a logical process (<em>addition algorithm</em>). This process of mathemetical reasoning is independent of the language in which the problem was posed, and I would like to find if this is the case for LLMs, like GPT-4o, as well.</p>
+<h2 id="experiments">Experiments<a hidden class="anchor" aria-hidden="true" href="#experiments">#</a></h2>
+<p>There are many experimental directions to take on from this point, but I will stick to a simple setup involving (1) a problem domain that GPT-4o can solve in <em>some</em> language, and (2) a language that GPT-4o can understand but has (to some degree of confidence, of course) not been used in the training data to solve math problems. We can then evaluate GPT-4o&rsquo;s ability to solve problems in this new language and compare it to its performance in the original language.</p>
+<p>For simplicity, I choose two-operand addition for (1) and base64 for (2). In what follows, I show that GPT-4o can do two-operand addition up to 8 digits almost perfectly in English but struggles to do so in base64. I follow this up with some attempts at enabling reasoning in base64 using few-shot and chain-of-thought (CoT) prompting.</p>
+<h3 id="gpt-4o-solves-addition-in-english">GPT-4o solves addition in English<a hidden class="anchor" aria-hidden="true" href="#gpt-4o-solves-addition-in-english">#</a></h3>
+<p>Let&rsquo;s first evaluate GPT-4o&rsquo;s ability to solve addition problems in English. I randomly sample two operands with at least $n$-digits and ask GPT-4o to add these numbers. An example prompt is shown below:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Solve the following arithmetic problem. The only line of your response should be of 
+</span></span><span style="display:flex;"><span>the following format: &#39;Answer: $NUMBER&#39; (without quotes) where NUMBER is the 
+</span></span><span style="display:flex;"><span>answer to the problem.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>40130604 + 24387343 = 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GPT-4o&rsquo;s response to the above prompt is:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Answer: 64517947
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>which is correct.</p>
+<p>This process is repeated for $n=1, 2, 4, 8$. The results are summarized in Table 1.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Task</th>
+<th style="text-align:center">1 digit</th>
+<th style="text-align:center">2 digit</th>
+<th style="text-align:center">4 digit</th>
+<th style="text-align:center">8 digit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Addition (English)</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">97.0%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 1. Accuracy on $n$-digit addition with two operands when the problem is posed in English. GPT-4o can (almost) perfectly solve this task.</em></p>
+<p>This shows that we have picked a task that GPT-4o has the ability to do well in English. <em>How</em> GPT-4o does this is a different matter (e.g., statistical correlations, addition circuits, etc.), and not of concern here.</p>
+<h3 id="gpt-4o-understands-base64">GPT-4o &ldquo;understands&rdquo; Base64<a hidden class="anchor" aria-hidden="true" href="#gpt-4o-understands-base64">#</a></h3>
+<p>Let&rsquo;s also separately establish that GPT-4o &ldquo;understands&rdquo; base64. Since it is unclear what this means, I pick a simple task that requires familiarity with base64 and test GPT-4o&rsquo;s ability to solve the task: I ask GPT-4o to decode the base64-encoded version of the problem statements from the previous section, and check for the accuracy in recovering the original string. The results are summarized in Table 2.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Task</th>
+<th style="text-align:center">1 digit</th>
+<th style="text-align:center">2 digit</th>
+<th style="text-align:center">4 digit</th>
+<th style="text-align:center">8 digit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Translation (Base64 to English)</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">94.0%</td>
+<td style="text-align:center">98.0%</td>
+<td style="text-align:center">97.0%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 2. Accuracy on decoding base64-encoded $n$-digit addition problems. GPT-4o can decode base64-encoded strings with high accuracy.</em></p>
+<p>Upon manual inspection, it was found that almost all the errors were quite minor: e.g., all the missing 6% for 2-digit numbers were due to GPT-4o missing a <code>$</code> in the base64-encoded string. Overall, this is a good indication that GPT-4o has some understanding of base64. So, can GPT-4o reason in base64?</p>
+<h3 id="gpt-4o-cannot-solve-addition-in-base64">GPT-4o cannot solve addition in Base64<a hidden class="anchor" aria-hidden="true" href="#gpt-4o-cannot-solve-addition-in-base64">#</a></h3>
+<p>I evaluate GPT-4o&rsquo;s ability to solve addition problems in base64. The same problems as before are posed to GPT-4o, but this time, the problem statements are encoded in base64, and GPT-4o is instructed to respond in base64 in the system prompt. GPT-4o&rsquo;s response is decoded to check for accuracy (if decoding fails for any reason, it is marked as a failure).</p>
+<p>I show an example of the base64-encoded version of the above prompt below:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>U29sdmUgdGhlIGZvbGxvd2luZyBhcml0aG1ldGljIHByb2JsZW0uIFRoZSBvbmx5IGxpbmUgb2YgeW91ciByZXNwb25zZSBzaG91bGQgYmUgb2YgdGhlIGZvbGxvd2luZyBmb3JtYXQ6ICdBbnN3ZXI6ICROVU1CRVInICh3aXRob3V0IHF1b3Rlcykgd2hlcmUgTlVNQkVSIGlzIHRoZSBhbnN3ZXIgdG8gdGhlIHByb2JsZW0uCgo0MDEzMDYwNCArIDI0Mzg3MzQzID0g
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GPT-4o&rsquo;s response, originally in base64 and decoded, is shown below:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## Original
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>QW5zd2VyOiA2NDU0OTM0NyA=
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Decoded
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Answer: 64549347
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So while GPT-4o was able to follow the instruction of formatting the answer appropriately in base64, it was not able to solve the problem correctly. The complete set of results is shown in Table 3.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Task</th>
+<th style="text-align:center">1 digit</th>
+<th style="text-align:center">2 digit</th>
+<th style="text-align:center">4 digit</th>
+<th style="text-align:center">8 digit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Addition (English)</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">97.0%</td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64)</td>
+<td style="text-align:center">80.0%</td>
+<td style="text-align:center">79.0%</td>
+<td style="text-align:center">28.5%</td>
+<td style="text-align:center">3.0%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 3. Accuracy on $n$-digit addition with two operands when the problem is posed in base64. GPT-4o struggles to solve this task.</em></p>
+<p>The results show that GPT-4o&rsquo;s ability to solve addition problems in base64 is significantly worse than in English. Further, the accuracy drops significantly as the number of digits increases.
+This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across languages (in this case to base64), at least in the context of mathematical reasoning.</p>
+<h3 id="attempts-at-enabling-reasoning-in-base64">Attempts at enabling reasoning in Base64<a hidden class="anchor" aria-hidden="true" href="#attempts-at-enabling-reasoning-in-base64">#</a></h3>
+<p>Recent works have discussed many techniques to elicit better reasoning from LLMs. In this section, I try to use two of these: <strong>few-shot</strong> 
+  
+  
+  
+  
+  <span class="hugo-cite-intext"
+          itemprop="citation">(<span class="hugo-cite-group">
+  
+            <a href="#gpt3"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Tom B."><span itemprop="familyName">Brown</span></span>,&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Benjamin"><span itemprop="familyName">Mann</span></span>
+                    et al.,&#32;<span itemprop="datePublished">2020</span></a><span class="hugo-cite-citation"> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span itemscope
+        itemtype="https://schema.org/CreativeWork"
+        data-type="default"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Brown</span>,&#32;
+        <meta itemprop="givenName" content="Tom B." />
+        T.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Mann</span>,&#32;
+        <meta itemprop="givenName" content="Benjamin" />
+        B.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ryder</span>,&#32;
+        <meta itemprop="givenName" content="Nick" />
+        N.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Subbiah</span>,&#32;
+        <meta itemprop="givenName" content="Melanie" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Kaplan</span>,&#32;
+        <meta itemprop="givenName" content="Jared" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Dhariwal</span>,&#32;
+        <meta itemprop="givenName" content="Prafulla" />
+        P.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Neelakantan</span>,&#32;
+        <meta itemprop="givenName" content="Arvind" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Shyam</span>,&#32;
+        <meta itemprop="givenName" content="Pranav" />
+        P.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Sastry</span>,&#32;
+        <meta itemprop="givenName" content="Girish" />
+        G.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Askell</span>,&#32;
+        <meta itemprop="givenName" content="Amanda" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Agarwal</span>,&#32;
+        <meta itemprop="givenName" content="Sandhini" />
+        S.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Herbert-Voss</span>,&#32;
+        <meta itemprop="givenName" content="Ariel" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Krueger</span>,&#32;
+        <meta itemprop="givenName" content="Gretchen" />
+        G.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Henighan</span>,&#32;
+        <meta itemprop="givenName" content="Tom" />
+        T.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Child</span>,&#32;
+        <meta itemprop="givenName" content="Rewon" />
+        R.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ramesh</span>,&#32;
+        <meta itemprop="givenName" content="Aditya" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ziegler</span>,&#32;
+        <meta itemprop="givenName" content="Daniel M." />
+        D.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Wu</span>,&#32;
+        <meta itemprop="givenName" content="Jeffrey" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Winter</span>,&#32;
+        <meta itemprop="givenName" content="Clemens" />
+        C.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Hesse</span>,&#32;
+        <meta itemprop="givenName" content="Christopher" />
+        C.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Chen</span>,&#32;
+        <meta itemprop="givenName" content="Mark" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Sigler</span>,&#32;
+        <meta itemprop="givenName" content="Eric" />
+        E.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Litwin</span>,&#32;
+        <meta itemprop="givenName" content="Mateusz" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Gray</span>,&#32;
+        <meta itemprop="givenName" content="Scott" />
+        S.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Chess</span>,&#32;
+        <meta itemprop="givenName" content="Benjamin" />
+        B.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Clark</span>,&#32;
+        <meta itemprop="givenName" content="Jack" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Berner</span>,&#32;
+        <meta itemprop="givenName" content="Christopher" />
+        C.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">McCandlish</span>,&#32;
+        <meta itemprop="givenName" content="Sam" />
+        S.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Radford</span>,&#32;
+        <meta itemprop="givenName" content="Alec" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Sutskever</span>,&#32;
+        <meta itemprop="givenName" content="Ilya" />
+        I.</span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Amodei</span>,&#32;
+        <meta itemprop="givenName" content="Dario" />
+        D.</span>
+    &#32;
+      (<span itemprop="datePublished">2020</span>).
+    &#32;<span itemprop="name">
+      <i>Language models are few-shot learners</i></span>.
+    
+    &#32;
+    
+    <a href="https://arxiv.org/abs/2005.14165"
+       itemprop="identifier"
+       itemtype="https://schema.org/URL">https://arxiv.org/abs/2005.14165</a>.</span>
+  </span></span>)</span> and <strong>chain-of-thought</strong> 
+  
+  
+  
+  
+  <span class="hugo-cite-intext"
+          itemprop="citation">(<span class="hugo-cite-group">
+  
+            <a href="#cot"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Jason"><span itemprop="familyName">Wei</span></span>,&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Xuezhi"><span itemprop="familyName">Wang</span></span>
+                    et al.,&#32;<span itemprop="datePublished">2023</span></a><span class="hugo-cite-citation"> 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span itemscope
+        itemtype="https://schema.org/CreativeWork"
+        data-type="default"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Wei</span>,&#32;
+        <meta itemprop="givenName" content="Jason" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Wang</span>,&#32;
+        <meta itemprop="givenName" content="Xuezhi" />
+        X.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Schuurmans</span>,&#32;
+        <meta itemprop="givenName" content="Dale" />
+        D.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Bosma</span>,&#32;
+        <meta itemprop="givenName" content="Maarten" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ichter</span>,&#32;
+        <meta itemprop="givenName" content="Brian" />
+        B.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Xia</span>,&#32;
+        <meta itemprop="givenName" content="Fei" />
+        F.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Chi</span>,&#32;
+        <meta itemprop="givenName" content="Ed" />
+        E.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Le</span>,&#32;
+        <meta itemprop="givenName" content="Quoc" />
+        Q.</span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Zhou</span>,&#32;
+        <meta itemprop="givenName" content="Denny" />
+        D.</span>
+    &#32;
+      (<span itemprop="datePublished">2023</span>).
+    &#32;<span itemprop="name">
+      <i>Chain-of-thought prompting elicits reasoning in large language models</i></span>.
+    
+    &#32;
+    
+    <a href="https://arxiv.org/abs/2201.11903"
+       itemprop="identifier"
+       itemtype="https://schema.org/URL">https://arxiv.org/abs/2201.11903</a>.</span>
+  </span></span>)</span> prompting, to improve GPT-4o&rsquo;s performance on addition in base64.</p>
+<h4 id="chain-of-thought-cot-prompting">Chain-of-thought (CoT) Prompting<a hidden class="anchor" aria-hidden="true" href="#chain-of-thought-cot-prompting">#</a></h4>
+<p>We can let GPT-4o elaborate on intermediate steps before giving the answer. But in which language should GPT-4o generate the CoT tokens? In my experiments, I tried both, English and base64, by using language-specific system prompts:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## System prompt for English CoT
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>You are a helpful assistant who can understand and respond only in base64. 
+</span></span><span style="display:flex;"><span>You think step-by-step in English within &lt;<span style="color:#f92672">thoughts</span>&gt; tags before 
+</span></span><span style="display:flex;"><span>following instructions.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## System prompt for base64 CoT
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>You are a helpful assistant who can understand and respond only in base64. 
+</span></span><span style="display:flex;"><span>You think step-by-step in base64 within &lt;<span style="color:#f92672">thoughts</span>&gt; tags before 
+</span></span><span style="display:flex;"><span>following instructions.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and found some interesting results. But first, let&rsquo;s look at some chains of thought generated by GPT-4o. For the same problem as above, GPT-4o generated the following English CoT:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&lt;<span style="color:#f92672">thoughts</span>&gt;To solve the arithmetic problem, I need to add the two numbers provided: 
+</span></span><span style="display:flex;"><span>40130604 and 24387343. I will perform the addition step-by-step.&lt;/<span style="color:#f92672">thoughts</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>40130604  
+</span></span><span style="display:flex;"><span>+24387343  
+</span></span><span style="display:flex;"><span>-----------
+</span></span><span style="display:flex;"><span>64517947  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">thoughts</span>&gt;The sum of 40130604 and 24387343 is 64517947. 
+</span></span><span style="display:flex;"><span>I will now encode this answer in base64 format.&lt;/<span style="color:#f92672">thoughts</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>and the following base64 CoT:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## Original
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>PHRob3VnaHRzPlN0YXJ0IGJ5IGNvbnZlcnRpbmcgdGhlIG51bWJlcnMgaW50byBiYXNlNjQuCjQwMTMwNjA0IGluIGJhc2U2NDogaXMgdGhlIHN0cmluZyAnNDAxMzA2MDQnLgoKMjQzODczNDMgaW4gYmFzZTY0IGlzIHRoZSBzdHJpbmcgJzI0Mzg3MzQzJy4KCkFkZCB0aGVzZSB0d28gYmFzZTY0IHN0cmluZ3MgdG9nZXRoZXIgdG8gZmluZCB0aGUgc3VtLgo0MDEzMDYwNCArIDI0Mzg3MzQzID0gNjQwMTk5NDcKClRoZSBzdW0gaW4gYmFzZTY0IGlzICc2NDAxOTk0NycuPC90aG91Z2h0cz4KCkFuc3dlcjogNjQwMTk5NDc=
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Decoded
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>&lt;<span style="color:#f92672">thoughts</span>&gt;Start by converting the numbers into base64.
+</span></span><span style="display:flex;"><span>40130604 in base64: is the string &#39;40130604&#39;.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>24387343 in base64 is the string &#39;24387343&#39;.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Add these two base64 strings together to find the sum.
+</span></span><span style="display:flex;"><span>40130604 + 24387343 = 64019947
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The sum in base64 is &#39;64019947&#39;.&lt;/<span style="color:#f92672">thoughts</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So GPT-4o had the base64 representations of the operands correct but only failed at the addition stage. Whatever reasoning allowed GPT-4o to answer the question in English, did not also operate in base64! The complete results are summarized in Table 4.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Task</th>
+<th style="text-align:center">1 digit</th>
+<th style="text-align:center">2 digit</th>
+<th style="text-align:center">4 digit</th>
+<th style="text-align:center">8 digit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Addition (English)</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">97.0%</td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64)</td>
+<td style="text-align:center">80.0%</td>
+<td style="text-align:center">79.0%</td>
+<td style="text-align:center">28.5%</td>
+<td style="text-align:center">3.0%</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><strong>CoT Prompting</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64; <em>English CoT</em>)</td>
+<td style="text-align:center">77.33%</td>
+<td style="text-align:center">92.0%</td>
+<td style="text-align:center">93.0%</td>
+<td style="text-align:center">92.5%</td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64; <em>Base64 CoT</em>)</td>
+<td style="text-align:center">82.67%</td>
+<td style="text-align:center">59.0%</td>
+<td style="text-align:center">23.5%</td>
+<td style="text-align:center">1.50%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 4. Accuracy on $n$-digit addition with CoT prompting.</em></p>
+<p>Key observations include:</p>
+<ol>
+<li>
+<p>English CoT allows GPT-4o to reason almost as well as solving the problem in English; this is expected as (a) GPT-4o is probably trained strongly to generate CoT in English, and (b) GPT-4o seems to approach this by translating the problem to English and back-translating the answer to base64 in the CoT.</p>
+</li>
+<li>
+<p>Allowing GPT-4o to generate a base64 CoT does worse than the baseline of having no CoT at all! In many cases (like the one shown above), the decoded base64 showed that GPT-4o is able to understand the task and identify the operands correctly but mainly falters at the addition step.</p>
+</li>
+</ol>
+<h4 id="few-shot-prompting">Few-shot Prompting<a hidden class="anchor" aria-hidden="true" href="#few-shot-prompting">#</a></h4>
+<p>Another trick to enable better reasoning involves showing a few demonstrations to the model, before letting it respond. The few-shot demonstrations here (held-out from the test set) are in base64 and &ldquo;warm-up&rdquo; the model to perform the task at hand. In my experiments, I tried 3-shot prompting, though it might be useful to also ablate the number of demonstrations. The results are shown in Table 5 alongwith other experiments for comparison.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Task</th>
+<th style="text-align:center">1 digit</th>
+<th style="text-align:center">2 digit</th>
+<th style="text-align:center">4 digit</th>
+<th style="text-align:center">8 digit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Addition (English)</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">97.0%</td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64)</td>
+<td style="text-align:center">80.0%</td>
+<td style="text-align:center">79.0%</td>
+<td style="text-align:center">28.5%</td>
+<td style="text-align:center">3.0%</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><strong>CoT Prompting</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64; <em>English CoT</em>)</td>
+<td style="text-align:center">77.33%</td>
+<td style="text-align:center">92.0%</td>
+<td style="text-align:center">93.0%</td>
+<td style="text-align:center">92.5%</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:center"><strong>3-shot Prompting</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">Addition (Base64; 3-Shot)</td>
+<td style="text-align:center">97.33%</td>
+<td style="text-align:center">96.0%</td>
+<td style="text-align:center">54.50%</td>
+<td style="text-align:center">11.50%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 5. Accuracy on $n$-digit addition with 3-shot prompting. Results with other methods shown for comparison.</em></p>
+<p>Few-shot prompting improves performance over the baseline (row 2) significantly, especially for 1- and 2-digit addition. Further, few-shot prompting improves performance for 1- and 2-digit addition over CoT prompting, but falls short for 4- and 8-digit addition. This suggests that while few-shot prompting is able to steer the model to do arithmetic for easier tasks, it is not able to help the model reason for harder tasks. It would be an interesting follow-up to investigate this phenomenon further &ndash; what is few-shot prompting doing differently between the easy and hard tasks?</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>I started out by asking if LLMs, like GPT-4o, generalize their reasoning abilities across langauges as humans do. In the context of simple arithmetic problems, I found that while GPT-4o understands base64 well, it does not generalize its reasoning abilities to base64. I showed that CoT and few-shot prompting potentially address this, but not consistently across different settings. This is a preliminary investigation and there are many directions to explore further including, but not limited to:</p>
+<ol start="0">
+<li>How do these findings hold up under other experimental settings: different languages, tasks, models, etc.?</li>
+<li>Can we characterize the nature of reasoning and languages where generalization of skills occurs?</li>
+<li>Why do methods like few-shot prompting and CoT not work consistently across different settings?</li>
+<li>Can we disentangle reasoning from language? Will this hurt or help the model&rsquo;s performance and under what settings?</li>
+</ol>
+<p>These questions might form the basis for subsequent posts or research, but for now, I am positively excited about research towards understanding reasoning in LLMs and how they resemeble or differ from human reasoning.</p>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <section class="hugo-cite-bibliography">
+    <dl>
+      
+  
+        <div id="cot">
+  
+          <dd>
+            
+            <p style="text-indent: -30px; margin-left: 30px">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span itemscope
+        itemtype="https://schema.org/CreativeWork"
+        data-type="default"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Wei</span>,&#32;
+        <meta itemprop="givenName" content="Jason" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Wang</span>,&#32;
+        <meta itemprop="givenName" content="Xuezhi" />
+        X.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Schuurmans</span>,&#32;
+        <meta itemprop="givenName" content="Dale" />
+        D.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Bosma</span>,&#32;
+        <meta itemprop="givenName" content="Maarten" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ichter</span>,&#32;
+        <meta itemprop="givenName" content="Brian" />
+        B.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Xia</span>,&#32;
+        <meta itemprop="givenName" content="Fei" />
+        F.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Chi</span>,&#32;
+        <meta itemprop="givenName" content="Ed" />
+        E.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Le</span>,&#32;
+        <meta itemprop="givenName" content="Quoc" />
+        Q.</span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Zhou</span>,&#32;
+        <meta itemprop="givenName" content="Denny" />
+        D.</span>
+    &#32;
+      (<span itemprop="datePublished">2023</span>).
+    &#32;<span itemprop="name">
+      <i>Chain-of-thought prompting elicits reasoning in large language models</i></span>.
+    
+    &#32;
+    
+    <a href="https://arxiv.org/abs/2201.11903"
+       itemprop="identifier"
+       itemtype="https://schema.org/URL">https://arxiv.org/abs/2201.11903</a>.</span>
+  </dd>
+            </p>
+  
+        </div>
+  
+        <div id="gpt3">
+  
+          <dd>
+            
+            <p style="text-indent: -30px; margin-left: 30px">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span itemscope
+        itemtype="https://schema.org/CreativeWork"
+        data-type="default"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Brown</span>,&#32;
+        <meta itemprop="givenName" content="Tom B." />
+        T.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Mann</span>,&#32;
+        <meta itemprop="givenName" content="Benjamin" />
+        B.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ryder</span>,&#32;
+        <meta itemprop="givenName" content="Nick" />
+        N.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Subbiah</span>,&#32;
+        <meta itemprop="givenName" content="Melanie" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Kaplan</span>,&#32;
+        <meta itemprop="givenName" content="Jared" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Dhariwal</span>,&#32;
+        <meta itemprop="givenName" content="Prafulla" />
+        P.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Neelakantan</span>,&#32;
+        <meta itemprop="givenName" content="Arvind" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Shyam</span>,&#32;
+        <meta itemprop="givenName" content="Pranav" />
+        P.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Sastry</span>,&#32;
+        <meta itemprop="givenName" content="Girish" />
+        G.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Askell</span>,&#32;
+        <meta itemprop="givenName" content="Amanda" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Agarwal</span>,&#32;
+        <meta itemprop="givenName" content="Sandhini" />
+        S.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Herbert-Voss</span>,&#32;
+        <meta itemprop="givenName" content="Ariel" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Krueger</span>,&#32;
+        <meta itemprop="givenName" content="Gretchen" />
+        G.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Henighan</span>,&#32;
+        <meta itemprop="givenName" content="Tom" />
+        T.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Child</span>,&#32;
+        <meta itemprop="givenName" content="Rewon" />
+        R.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ramesh</span>,&#32;
+        <meta itemprop="givenName" content="Aditya" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Ziegler</span>,&#32;
+        <meta itemprop="givenName" content="Daniel M." />
+        D.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Wu</span>,&#32;
+        <meta itemprop="givenName" content="Jeffrey" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Winter</span>,&#32;
+        <meta itemprop="givenName" content="Clemens" />
+        C.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Hesse</span>,&#32;
+        <meta itemprop="givenName" content="Christopher" />
+        C.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Chen</span>,&#32;
+        <meta itemprop="givenName" content="Mark" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Sigler</span>,&#32;
+        <meta itemprop="givenName" content="Eric" />
+        E.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Litwin</span>,&#32;
+        <meta itemprop="givenName" content="Mateusz" />
+        M.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Gray</span>,&#32;
+        <meta itemprop="givenName" content="Scott" />
+        S.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Chess</span>,&#32;
+        <meta itemprop="givenName" content="Benjamin" />
+        B.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Clark</span>,&#32;
+        <meta itemprop="givenName" content="Jack" />
+        J.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Berner</span>,&#32;
+        <meta itemprop="givenName" content="Christopher" />
+        C.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">McCandlish</span>,&#32;
+        <meta itemprop="givenName" content="Sam" />
+        S.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Radford</span>,&#32;
+        <meta itemprop="givenName" content="Alec" />
+        A.</span>,&#32;
+        <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Sutskever</span>,&#32;
+        <meta itemprop="givenName" content="Ilya" />
+        I.</span>&#32;&amp;&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="familyName">Amodei</span>,&#32;
+        <meta itemprop="givenName" content="Dario" />
+        D.</span>
+    &#32;
+      (<span itemprop="datePublished">2020</span>).
+    &#32;<span itemprop="name">
+      <i>Language models are few-shot learners</i></span>.
+    
+    &#32;
+    
+    <a href="https://arxiv.org/abs/2005.14165"
+       itemprop="identifier"
+       itemtype="https://schema.org/URL">https://arxiv.org/abs/2005.14165</a>.</span>
+  </dd>
+            </p>
+  
+        </div>
+    </dl>
+  </section>
+  
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://nihaljn.github.io/">Nihal Jain</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

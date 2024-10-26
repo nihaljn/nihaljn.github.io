@@ -1,0 +1,211 @@
+[
+  {
+    "URL": "https://florian.github.io/base64/",
+    "author": [
+      {
+        "family": "Hartmann",
+        "given": "Florian"
+      }
+    ],
+    "id": "llms-understand-base64",
+    "issued": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "title": "LLMs understand Base64",
+    "type": ""
+  },
+  {
+    "URL": "https://arxiv.org/abs/2005.14165",
+    "author": [
+      {
+        "family": "Brown",
+        "given": "Tom B."
+      },
+      {
+        "family": "Mann",
+        "given": "Benjamin"
+      },
+      {
+        "family": "Ryder",
+        "given": "Nick"
+      },
+      {
+        "family": "Subbiah",
+        "given": "Melanie"
+      },
+      {
+        "family": "Kaplan",
+        "given": "Jared"
+      },
+      {
+        "family": "Dhariwal",
+        "given": "Prafulla"
+      },
+      {
+        "family": "Neelakantan",
+        "given": "Arvind"
+      },
+      {
+        "family": "Shyam",
+        "given": "Pranav"
+      },
+      {
+        "family": "Sastry",
+        "given": "Girish"
+      },
+      {
+        "family": "Askell",
+        "given": "Amanda"
+      },
+      {
+        "family": "Agarwal",
+        "given": "Sandhini"
+      },
+      {
+        "family": "Herbert-Voss",
+        "given": "Ariel"
+      },
+      {
+        "family": "Krueger",
+        "given": "Gretchen"
+      },
+      {
+        "family": "Henighan",
+        "given": "Tom"
+      },
+      {
+        "family": "Child",
+        "given": "Rewon"
+      },
+      {
+        "family": "Ramesh",
+        "given": "Aditya"
+      },
+      {
+        "family": "Ziegler",
+        "given": "Daniel M."
+      },
+      {
+        "family": "Wu",
+        "given": "Jeffrey"
+      },
+      {
+        "family": "Winter",
+        "given": "Clemens"
+      },
+      {
+        "family": "Hesse",
+        "given": "Christopher"
+      },
+      {
+        "family": "Chen",
+        "given": "Mark"
+      },
+      {
+        "family": "Sigler",
+        "given": "Eric"
+      },
+      {
+        "family": "Litwin",
+        "given": "Mateusz"
+      },
+      {
+        "family": "Gray",
+        "given": "Scott"
+      },
+      {
+        "family": "Chess",
+        "given": "Benjamin"
+      },
+      {
+        "family": "Clark",
+        "given": "Jack"
+      },
+      {
+        "family": "Berner",
+        "given": "Christopher"
+      },
+      {
+        "family": "McCandlish",
+        "given": "Sam"
+      },
+      {
+        "family": "Radford",
+        "given": "Alec"
+      },
+      {
+        "family": "Sutskever",
+        "given": "Ilya"
+      },
+      {
+        "family": "Amodei",
+        "given": "Dario"
+      }
+    ],
+    "id": "gpt3",
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "title": "Language models are few-shot learners",
+    "type": ""
+  },
+  {
+    "URL": "https://arxiv.org/abs/2201.11903",
+    "author": [
+      {
+        "family": "Wei",
+        "given": "Jason"
+      },
+      {
+        "family": "Wang",
+        "given": "Xuezhi"
+      },
+      {
+        "family": "Schuurmans",
+        "given": "Dale"
+      },
+      {
+        "family": "Bosma",
+        "given": "Maarten"
+      },
+      {
+        "family": "Ichter",
+        "given": "Brian"
+      },
+      {
+        "family": "Xia",
+        "given": "Fei"
+      },
+      {
+        "family": "Chi",
+        "given": "Ed"
+      },
+      {
+        "family": "Le",
+        "given": "Quoc"
+      },
+      {
+        "family": "Zhou",
+        "given": "Denny"
+      }
+    ],
+    "id": "cot",
+    "issued": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "title": "Chain-of-thought prompting elicits reasoning in large language models",
+    "type": ""
+  }
+]
