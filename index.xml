@@ -6,8 +6,18 @@
     <description>Recent content on Nihal Jain</description>
     <generator>Hugo -- 0.129.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Mar 2025 23:50:04 -0400</lastBuildDate>
     <atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude 3.7 Sonnet and Claude Code</title>
+      <link>https://nihaljn.github.io/notes/claude-3.7-sonnet-and-claude-code/</link>
+      <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
+      <guid>https://nihaljn.github.io/notes/claude-3.7-sonnet-and-claude-code/</guid>
+      <description>Link. Originally published: Feb 24, 2025.
+we’re announcing Claude 3.7 Sonnet1, our most intelligent model to date and the first hybrid reasoning model on the market.
+API users also have fine-grained control over how long the model can think for
+we’re also introducing a command line tool for agentic coding, Claude Code. Claude Code is available as a limited research preview, and enables developers to delegate substantial engineering tasks to Claude directly from their terminal.</description>
+    </item>
     <item>
       <title>On Mitigating Code LLM Hallucinations with API Documentation</title>
       <link>https://nihaljn.github.io/publications/icse2025/</link>
