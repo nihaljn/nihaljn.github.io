@@ -25,7 +25,7 @@ MathJax = {
 <meta name="description" content="Evaluating the abilities of language models to reason in base64.">
 <meta name="author" content="Nihal Jain">
 <link rel="canonical" href="https://nihaljn.github.io/posts/language-model-reasoning-in-base64/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e9479084cba11e0f12302f38b028c86fc7a2838ae1cdf95db9e362fe2a9e6dd7.css" integrity="sha256-6UeQhMuhHg8SMC84sCjIb8eig4rhzfldueNi/iqebdc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f98a1b1753f8abfd9b87c109ea8575e9751d8f4c1fd960b17a81097fd94f3f3a.css" integrity="sha256-&#43;YobF1P4q/2bh8EJ6oV16XUdj0wf2WCxeoEJf9lPPzo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -61,8 +61,6 @@ MathJax = {
         });
     });
 </script>
-  
-    
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BZ254GT1K"></script>
       <script>
         var doNotTrack = false;
@@ -76,11 +74,7 @@ MathJax = {
           gtag('js', new Date());
           gtag('config', 'G-9BZ254GT1K');
         }
-      </script>
-    
-  
-
-<meta property="og:url" content="https://nihaljn.github.io/posts/language-model-reasoning-in-base64/">
+      </script><meta property="og:url" content="https://nihaljn.github.io/posts/language-model-reasoning-in-base64/">
   <meta property="og:site_name" content="Nihal Jain">
   <meta property="og:title" content="Language Model Reasoning in Base64">
   <meta property="og:description" content="Evaluating the abilities of language models to reason in base64.">
@@ -89,8 +83,8 @@ MathJax = {
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-26T14:19:38-04:00">
     <meta property="article:modified_time" content="2024-10-26T14:19:38-04:00">
-    <meta property="article:tag" content="Reasoning">
-    <meta property="article:tag" content="Large-Language-Models">
+    <meta property="article:tag" content="reasoning">
+    <meta property="article:tag" content="large-language-models">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Language Model Reasoning in Base64">
 <meta name="twitter:description" content="Evaluating the abilities of language models to reason in base64.">
@@ -223,8 +217,8 @@ MathJax = {
     </div>
     
     <div class="post-tags-meta">
-      <a href="https://nihaljn.github.io/tags/reasoning/" class="post-tag">Reasoning</a>
-      <a href="https://nihaljn.github.io/tags/large-language-models/" class="post-tag">Large-Language-Models</a>
+      <a href="https://nihaljn.github.io/tags/reasoning/" class="post-tag">reasoning</a>
+      <a href="https://nihaljn.github.io/tags/large-language-models/" class="post-tag">large-language-models</a>
     </div>
     <div class="post-meta"><span title='2024-10-26 14:19:38 -0400 EDT'>October 26, 2024</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Nihal Jain
 
@@ -307,48 +301,48 @@ MathJax = {
 </div><p>which is correct.</p>
 <p>This process is repeated for $n=1, 2, 4, 8$. The results are summarized in Table 1.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Task</th>
-<th style="text-align:center">1 digit</th>
-<th style="text-align:center">2 digit</th>
-<th style="text-align:center">4 digit</th>
-<th style="text-align:center">8 digit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Addition (English)</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">97.0%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Task</th>
+          <th style="text-align: center">1 digit</th>
+          <th style="text-align: center">2 digit</th>
+          <th style="text-align: center">4 digit</th>
+          <th style="text-align: center">8 digit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Addition (English)</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">97.0%</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Table 1. Accuracy on $n$-digit addition with two operands when the problem is posed in English. GPT-4o can (almost) perfectly solve this task.</em></p>
 <p>This shows that we have picked a task that GPT-4o has the ability to do well in English. <em>How</em> GPT-4o does this is a different matter (e.g., statistical correlations, addition circuits, etc.), and not of concern here.</p>
 <h3 id="gpt-4o-understands-base64">GPT-4o &ldquo;understands&rdquo; Base64<a hidden class="anchor" aria-hidden="true" href="#gpt-4o-understands-base64">#</a></h3>
 <p>Let&rsquo;s also separately establish that GPT-4o &ldquo;understands&rdquo; base64. Since it is unclear what this means, I pick a simple task that requires familiarity with base64 and test GPT-4o&rsquo;s ability to solve the task: I ask GPT-4o to decode the base64-encoded version of the problem statements from the previous section, and check for the accuracy in recovering the original string. The results are summarized in Table 2.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Task</th>
-<th style="text-align:center">1 digit</th>
-<th style="text-align:center">2 digit</th>
-<th style="text-align:center">4 digit</th>
-<th style="text-align:center">8 digit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Translation (Base64 to English)</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">94.0%</td>
-<td style="text-align:center">98.0%</td>
-<td style="text-align:center">97.0%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Task</th>
+          <th style="text-align: center">1 digit</th>
+          <th style="text-align: center">2 digit</th>
+          <th style="text-align: center">4 digit</th>
+          <th style="text-align: center">8 digit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Translation (Base64 to English)</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">94.0%</td>
+          <td style="text-align: center">98.0%</td>
+          <td style="text-align: center">97.0%</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Table 2. Accuracy on decoding base64-encoded $n$-digit addition problems. GPT-4o can decode base64-encoded strings with high accuracy.</em></p>
 <p>Upon manual inspection, it was found that almost all the errors were quite minor: e.g., all the missing 6% for 2-digit numbers were due to GPT-4o missing a <code>$</code> in the base64-encoded string. Overall, this is a good indication that GPT-4o has some understanding of base64. So, can GPT-4o reason in base64?</p>
@@ -382,46 +376,44 @@ MathJax = {
 </div>
 </div><p>So while GPT-4o was able to follow the instruction of formatting the answer appropriately in base64, it was not able to solve the problem correctly. The complete set of results is shown in Table 3.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Task</th>
-<th style="text-align:center">1 digit</th>
-<th style="text-align:center">2 digit</th>
-<th style="text-align:center">4 digit</th>
-<th style="text-align:center">8 digit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Addition (English)</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">97.0%</td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64)</td>
-<td style="text-align:center">80.0%</td>
-<td style="text-align:center">79.0%</td>
-<td style="text-align:center">28.5%</td>
-<td style="text-align:center">3.0%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Task</th>
+          <th style="text-align: center">1 digit</th>
+          <th style="text-align: center">2 digit</th>
+          <th style="text-align: center">4 digit</th>
+          <th style="text-align: center">8 digit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Addition (English)</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">97.0%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64)</td>
+          <td style="text-align: center">80.0%</td>
+          <td style="text-align: center">79.0%</td>
+          <td style="text-align: center">28.5%</td>
+          <td style="text-align: center">3.0%</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Table 3. Accuracy on $n$-digit addition with two operands when the problem is posed in base64. GPT-4o struggles to solve this task.</em></p>
 <p>The results show that GPT-4o&rsquo;s ability to solve addition problems in base64 is significantly worse than in English. Further, the accuracy drops significantly as the number of digits increases.
 This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across languages (in this case to base64), at least in the context of mathematical reasoning.</p>
 <h3 id="attempts-at-enabling-reasoning-in-base64">Attempts at enabling reasoning in Base64<a hidden class="anchor" aria-hidden="true" href="#attempts-at-enabling-reasoning-in-base64">#</a></h3>
 <p>Recent works have discussed many techniques to elicit better reasoning from LLMs. In this section, I try to use two of these: <strong>few-shot</strong> 
-  
-  
-  
-  
-  <span class="hugo-cite-intext"
-          itemprop="citation">(<span class="hugo-cite-group">
-  
-            <a href="#gpt3"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Tom B."><span itemprop="familyName">Brown</span></span>,&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Benjamin"><span itemprop="familyName">Mann</span></span>
-                    et al.,&#32;<span itemprop="datePublished">2020</span></a><span class="hugo-cite-citation"> 
+
+
+
+
+<span class="hugo-cite-intext" itemprop="citation">(<span class="hugo-cite-group">
+        <a href="#gpt3"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Tom B."><span itemprop="familyName">Brown</span></span>,&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Benjamin"><span itemprop="familyName">Mann</span></span>
+                et al.,&#32;<span itemprop="datePublished">2020</span></a><span class="hugo-cite-citation"> 
   
   
   
@@ -536,16 +528,16 @@ This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across l
     <a href="https://arxiv.org/abs/2005.14165"
        itemprop="identifier"
        itemtype="https://schema.org/URL">https://arxiv.org/abs/2005.14165</a>.</span>
-  </span></span>)</span> and <strong>chain-of-thought</strong> 
-  
-  
-  
-  
-  <span class="hugo-cite-intext"
-          itemprop="citation">(<span class="hugo-cite-group">
-  
-            <a href="#cot"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Jason"><span itemprop="familyName">Wei</span></span>,&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Xuezhi"><span itemprop="familyName">Wang</span></span>
-                    et al.,&#32;<span itemprop="datePublished">2023</span></a><span class="hugo-cite-citation"> 
+  </span>
+      </span>)</span>
+ and <strong>chain-of-thought</strong> 
+
+
+
+
+<span class="hugo-cite-intext" itemprop="citation">(<span class="hugo-cite-group">
+        <a href="#cot"><span class="visually-hidden">Citation: </span><span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Jason"><span itemprop="familyName">Wei</span></span>,&#32;<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="givenName" content="Xuezhi"><span itemprop="familyName">Wang</span></span>
+                et al.,&#32;<span itemprop="datePublished">2023</span></a><span class="hugo-cite-citation"> 
   
   
   
@@ -594,7 +586,9 @@ This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across l
     <a href="https://arxiv.org/abs/2201.11903"
        itemprop="identifier"
        itemtype="https://schema.org/URL">https://arxiv.org/abs/2201.11903</a>.</span>
-  </span></span>)</span> prompting, to improve GPT-4o&rsquo;s performance on addition in base64.</p>
+  </span>
+      </span>)</span>
+ prompting, to improve GPT-4o&rsquo;s performance on addition in base64.</p>
 <h4 id="chain-of-thought-cot-prompting">Chain-of-thought (CoT) Prompting<a hidden class="anchor" aria-hidden="true" href="#chain-of-thought-cot-prompting">#</a></h4>
 <p>We can let GPT-4o elaborate on intermediate steps before giving the answer. But in which language should GPT-4o generate the CoT tokens? In my experiments, I tried both, English and base64, by using language-specific system prompts:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -683,52 +677,52 @@ This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across l
 </div>
 </div><p>So GPT-4o had the base64 representations of the operands correct but only failed at the addition stage. Whatever reasoning allowed GPT-4o to answer the question in English, did not also operate in base64! The complete results are summarized in Table 4.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Task</th>
-<th style="text-align:center">1 digit</th>
-<th style="text-align:center">2 digit</th>
-<th style="text-align:center">4 digit</th>
-<th style="text-align:center">8 digit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Addition (English)</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">97.0%</td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64)</td>
-<td style="text-align:center">80.0%</td>
-<td style="text-align:center">79.0%</td>
-<td style="text-align:center">28.5%</td>
-<td style="text-align:center">3.0%</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:center"><strong>CoT Prompting</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64; <em>English CoT</em>)</td>
-<td style="text-align:center">77.33%</td>
-<td style="text-align:center">92.0%</td>
-<td style="text-align:center">93.0%</td>
-<td style="text-align:center">92.5%</td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64; <em>Base64 CoT</em>)</td>
-<td style="text-align:center">82.67%</td>
-<td style="text-align:center">59.0%</td>
-<td style="text-align:center">23.5%</td>
-<td style="text-align:center">1.50%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Task</th>
+          <th style="text-align: center">1 digit</th>
+          <th style="text-align: center">2 digit</th>
+          <th style="text-align: center">4 digit</th>
+          <th style="text-align: center">8 digit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Addition (English)</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">97.0%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64)</td>
+          <td style="text-align: center">80.0%</td>
+          <td style="text-align: center">79.0%</td>
+          <td style="text-align: center">28.5%</td>
+          <td style="text-align: center">3.0%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: center"><strong>CoT Prompting</strong></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64; <em>English CoT</em>)</td>
+          <td style="text-align: center">77.33%</td>
+          <td style="text-align: center">92.0%</td>
+          <td style="text-align: center">93.0%</td>
+          <td style="text-align: center">92.5%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64; <em>Base64 CoT</em>)</td>
+          <td style="text-align: center">82.67%</td>
+          <td style="text-align: center">59.0%</td>
+          <td style="text-align: center">23.5%</td>
+          <td style="text-align: center">1.50%</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Table 4. Accuracy on $n$-digit addition with CoT prompting.</em></p>
 <p>Key observations include:</p>
@@ -743,59 +737,59 @@ This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across l
 <h4 id="few-shot-prompting">Few-shot Prompting<a hidden class="anchor" aria-hidden="true" href="#few-shot-prompting">#</a></h4>
 <p>Another trick to enable better reasoning involves showing a few demonstrations to the model, before letting it respond. The few-shot demonstrations here (held-out from the test set) are in base64 and &ldquo;warm-up&rdquo; the model to perform the task at hand. In my experiments, I tried 3-shot prompting, though it might be useful to also ablate the number of demonstrations. The results are shown in Table 5 alongwith other experiments for comparison.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Task</th>
-<th style="text-align:center">1 digit</th>
-<th style="text-align:center">2 digit</th>
-<th style="text-align:center">4 digit</th>
-<th style="text-align:center">8 digit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Addition (English)</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">100%</td>
-<td style="text-align:center">97.0%</td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64)</td>
-<td style="text-align:center">80.0%</td>
-<td style="text-align:center">79.0%</td>
-<td style="text-align:center">28.5%</td>
-<td style="text-align:center">3.0%</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:center"><strong>CoT Prompting</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64; <em>English CoT</em>)</td>
-<td style="text-align:center">77.33%</td>
-<td style="text-align:center">92.0%</td>
-<td style="text-align:center">93.0%</td>
-<td style="text-align:center">92.5%</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:center"><strong>3-shot Prompting</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">Addition (Base64; 3-Shot)</td>
-<td style="text-align:center">97.33%</td>
-<td style="text-align:center">96.0%</td>
-<td style="text-align:center">54.50%</td>
-<td style="text-align:center">11.50%</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Task</th>
+          <th style="text-align: center">1 digit</th>
+          <th style="text-align: center">2 digit</th>
+          <th style="text-align: center">4 digit</th>
+          <th style="text-align: center">8 digit</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Addition (English)</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">100%</td>
+          <td style="text-align: center">97.0%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64)</td>
+          <td style="text-align: center">80.0%</td>
+          <td style="text-align: center">79.0%</td>
+          <td style="text-align: center">28.5%</td>
+          <td style="text-align: center">3.0%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: center"><strong>CoT Prompting</strong></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64; <em>English CoT</em>)</td>
+          <td style="text-align: center">77.33%</td>
+          <td style="text-align: center">92.0%</td>
+          <td style="text-align: center">93.0%</td>
+          <td style="text-align: center">92.5%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: center"><strong>3-shot Prompting</strong></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Addition (Base64; 3-Shot)</td>
+          <td style="text-align: center">97.33%</td>
+          <td style="text-align: center">96.0%</td>
+          <td style="text-align: center">54.50%</td>
+          <td style="text-align: center">11.50%</td>
+      </tr>
+  </tbody>
 </table>
 <p><em>Table 5. Accuracy on $n$-digit addition with 3-shot prompting. Results with other methods shown for comparison.</em></p>
 <p>Few-shot prompting improves performance over the baseline (row 2) significantly, especially for 1- and 2-digit addition. Further, few-shot prompting improves performance for 1- and 2-digit addition over CoT prompting, but falls short for 4- and 8-digit addition. This suggests that while few-shot prompting is able to steer the model to do arithmetic for easier tasks, it is not able to help the model reason for harder tasks. It would be an interesting follow-up to investigate this phenomenon further &ndash; what is few-shot prompting doing differently between the easy and hard tasks?</p>
@@ -811,7 +805,6 @@ This suggests that GPT-4o&rsquo;s reasoning abilities do not generalize across l
 <h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
 
   
-
   
   
   

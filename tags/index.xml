@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Nihal Jain</title>
+    <title>tags on Nihal Jain</title>
     <link>https://nihaljn.github.io/tags/</link>
-    <description>Recent content in Tags on Nihal Jain</description>
-    <generator>Hugo -- 0.129.0</generator>
+    <description>Recent content in tags on Nihal Jain</description>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Mar 2025 23:50:04 -0400</lastBuildDate>
     <atom:link href="https://nihaljn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agentic-Ai</title>
+      <title>agentic-ai</title>
       <link>https://nihaljn.github.io/tags/agentic-ai/</link>
       <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/agentic-ai/</guid>
       <description></description>
     </item>
     <item>
-      <title>Code-Generation</title>
+      <title>code-generation</title>
       <link>https://nihaljn.github.io/tags/code-generation/</link>
       <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/code-generation/</guid>
       <description></description>
     </item>
     <item>
-      <title>Large-Language-Models</title>
+      <title>large-language-models</title>
       <link>https://nihaljn.github.io/tags/large-language-models/</link>
       <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/large-language-models/</guid>
       <description></description>
     </item>
     <item>
-      <title>News</title>
+      <title>news</title>
       <link>https://nihaljn.github.io/tags/news/</link>
       <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/news/</guid>
       <description></description>
     </item>
     <item>
-      <title>Predictions</title>
+      <title>predictions</title>
       <link>https://nihaljn.github.io/tags/predictions/</link>
       <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/predictions/</guid>
       <description></description>
     </item>
     <item>
-      <title>Reasoning</title>
+      <title>reasoning</title>
       <link>https://nihaljn.github.io/tags/reasoning/</link>
       <pubDate>Sat, 26 Oct 2024 14:19:38 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/reasoning/</guid>
       <description></description>
     </item>
     <item>
-      <title>Diffusion-Models</title>
+      <title>diffusion-models</title>
       <link>https://nihaljn.github.io/tags/diffusion-models/</link>
       <pubDate>Sat, 01 Oct 2022 20:56:16 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/diffusion-models/</guid>
       <description></description>
     </item>
     <item>
-      <title>Image-Generation</title>
+      <title>image-generation</title>
       <link>https://nihaljn.github.io/tags/image-generation/</link>
       <pubDate>Sat, 01 Oct 2022 20:56:16 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/image-generation/</guid>
       <description></description>
     </item>
     <item>
-      <title>Multimodal-Ml</title>
+      <title>multimodal-ml</title>
       <link>https://nihaljn.github.io/tags/multimodal-ml/</link>
       <pubDate>Sat, 01 Oct 2022 20:56:16 -0400</pubDate>
       <guid>https://nihaljn.github.io/tags/multimodal-ml/</guid>
