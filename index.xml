@@ -6,8 +6,48 @@
     <description>Recent content on Nihal Jain</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Mar 2025 23:50:04 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 20:08:56 -0400</lastBuildDate>
     <atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>matplotlib rcParams</title>
+      <link>https://nihaljn.github.io/notes/matplotlib-rcparams/</link>
+      <pubDate>Tue, 15 Apr 2025 20:08:56 -0400</pubDate>
+      <guid>https://nihaljn.github.io/notes/matplotlib-rcparams/</guid>
+      <description>&lt;p&gt;I like to make my &lt;code&gt;matplotlib&lt;/code&gt; plots aesthetically pleasing. For each new project, I end up creating a fresh &amp;ldquo;aesthetic setup&amp;rdquo; for my plots; this causes inconsistencies across my visualizations and unnecessary overhead.&lt;/p&gt;
+&lt;p&gt;So, I decided to swallow the bitter pill, and learn about customizing &lt;code&gt;matplotlib&lt;/code&gt; the proper way. Thankfully, there is a neat &lt;a href=&#34;https://matplotlib.org/stable/users/explain/customizing.html&#34;&gt;blog&lt;/a&gt; explaining this. The recommendation appears to be overriding a dict-like variable &lt;code&gt;matplotlib.rcParams&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I will use this space to log my most current &lt;code&gt;rcParams&lt;/code&gt; overrides and some rationale behind the design where needed. I expect this to evolve over time, and I will try my best to log details when making changes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Weak Programming Patterns</title>
+      <link>https://nihaljn.github.io/notes/weak-programming-patterns/</link>
+      <pubDate>Sat, 29 Mar 2025 00:36:55 -0400</pubDate>
+      <guid>https://nihaljn.github.io/notes/weak-programming-patterns/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;When I see patterns in my programs, I consider it a sign of trouble. The shape of a program should reflect only the problem it needs to solve. Any other regularity in the code is a sign, to me at least, that I&amp;rsquo;m using abstractions that aren&amp;rsquo;t powerful enough&amp;ndash; often that I&amp;rsquo;m generating by hand the expansions of some macro that I need to write.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;From &amp;ldquo;Revenge of the Nerds&amp;rdquo; by Paul Graham [&lt;a href=&#34;https://www.paulgraham.com/icad.html&#34;&gt;Link&lt;/a&gt;].&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hardlinks and Softlinks</title>
+      <link>https://nihaljn.github.io/notes/hardlinks-and-softlinks/</link>
+      <pubDate>Fri, 28 Mar 2025 21:55:14 -0400</pubDate>
+      <guid>https://nihaljn.github.io/notes/hardlinks-and-softlinks/</guid>
+      <description>&lt;p&gt;A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;File      Target
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;F1    -&amp;gt;    D1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;F2    -&amp;gt;    D1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;F3    -&amp;gt;    F4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Here, &lt;code&gt;F2&lt;/code&gt; is a hardlink to &lt;code&gt;D1&lt;/code&gt; whereas &lt;code&gt;F3&lt;/code&gt; is a symlink to &lt;code&gt;F4&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Claude 3.7 Sonnet and Claude Code</title>
       <link>https://nihaljn.github.io/notes/claude-3.7-sonnet-and-claude-code/</link>
