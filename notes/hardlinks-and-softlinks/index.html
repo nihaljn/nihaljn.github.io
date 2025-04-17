@@ -23,24 +23,15 @@ MathJax = {
 <title>Hardlinks and Softlinks | Nihal Jain</title>
 <meta name="keywords" content="os">
 <meta name="description" content="A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:
-
-
-1
-2
-3
-4
-
-
 File      Target
 F1    -&gt;    D1
 F2    -&gt;    D1
 F3    -&gt;    F4
-
-
-Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
+Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.
+Symlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a &ldquo;backup&rdquo; copy without occupying more space (useful behavior for version control).">
 <meta name="author" content="">
 <link rel="canonical" href="https://nihaljn.github.io/notes/hardlinks-and-softlinks/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.7a4ec4cd177896a88f44a938b01d7475f626ea077e54ebe8498b44b0120bca3b.css" integrity="sha256-ek7EzRd4lqiPRKk4sB10dfYm6gd&#43;VOvoSYtEsBILyjs=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e29c46ec3c530255d8270b8b8d6e973b963ba7a90ad0a769f680330a80df432d.css" integrity="sha256-4pxG7DxTAlXYJwuLjW6XO5Y7p6kK0Kdp9oAzCoDfQy0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -65,6 +56,9 @@ Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
 
 
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@100..900&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css" rel="stylesheet">
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -93,7 +87,8 @@ Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
   <meta property="og:site_name" content="Nihal Jain">
   <meta property="og:title" content="Hardlinks and Softlinks">
   <meta property="og:description" content="A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:
-1 2 3 4 File Target F1 -&gt; D1 F2 -&gt; D1 F3 -&gt; F4 Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
+File Target F1 -&gt; D1 F2 -&gt; D1 F3 -&gt; F4 Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.
+Symlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a “backup” copy without occupying more space (useful behavior for version control).">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="notes">
@@ -103,21 +98,12 @@ Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hardlinks and Softlinks">
 <meta name="twitter:description" content="A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:
-
-
-1
-2
-3
-4
-
-
 File      Target
 F1    -&gt;    D1
 F2    -&gt;    D1
 F3    -&gt;    F4
-
-
-Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
+Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.
+Symlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a &ldquo;backup&rdquo; copy without occupying more space (useful behavior for version control).">
 
 
 <script type="application/ld+json">
@@ -146,12 +132,12 @@ Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
   "@type": "BlogPosting",
   "headline": "Hardlinks and Softlinks",
   "name": "Hardlinks and Softlinks",
-  "description": "A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:\n1 2 3 4 File Target F1 -\u0026gt; D1 F2 -\u0026gt; D1 F3 -\u0026gt; F4 Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.\n",
+  "description": "A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:\nFile Target F1 -\u0026gt; D1 F2 -\u0026gt; D1 F3 -\u0026gt; F4 Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.\nSymlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a \u0026ldquo;backup\u0026rdquo; copy without occupying more space (useful behavior for version control).\n",
   "keywords": [
     "os"
   ],
-  "articleBody": "A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:\n1 2 3 4 File Target F1 -\u003e D1 F2 -\u003e D1 F3 -\u003e F4 Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.\nSymlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a “backup” copy without occupying more space (useful behavior for version control).\nI came across this in a blog for uv where they mention that using hardlinks helps optimize disk usage for Python environment management.\n",
-  "wordCount" : "120",
+  "articleBody": "A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:\nFile Target F1 -\u003e D1 F2 -\u003e D1 F3 -\u003e F4 Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.\nSymlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a “backup” copy without occupying more space (useful behavior for version control).\nI came across this in a blog for uv where they mention that using hardlinks helps optimize disk usage for Python environment management.\n",
+  "wordCount" : "116",
   "inLanguage": "en",
   "datePublished": "2025-03-28T21:55:14-04:00",
   "dateModified": "2025-03-28T21:55:14-04:00",
@@ -247,21 +233,11 @@ Here, F2 is a hardlink to D1 whereas F3 is a symlink to F4.">
 </div>
   </header> 
   <div class="post-content"><p>A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>File      Target
-</span></span><span style="display:flex;"><span>F1    -&gt;    D1
-</span></span><span style="display:flex;"><span>F2    -&gt;    D1
-</span></span><span style="display:flex;"><span>F3    -&gt;    F4
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Here, <code>F2</code> is a hardlink to <code>D1</code> whereas <code>F3</code> is a symlink to <code>F4</code>.</p>
+<pre tabindex="0"><code>File      Target
+F1    -&gt;    D1
+F2    -&gt;    D1
+F3    -&gt;    F4
+</code></pre><p>Here, <code>F2</code> is a hardlink to <code>D1</code> whereas <code>F3</code> is a symlink to <code>F4</code>.</p>
 <p>Symlinks are preferred when shortcuts or shorthand paths are needed to files or directories. A hardlink on the other hand acts as a &ldquo;backup&rdquo; copy without occupying more space (useful behavior for version control).</p>
 <p>I came across this in a <a href="https://astral.sh/blog/uv">blog</a> for <code>uv</code> where they mention that using hardlinks helps optimize disk usage for Python environment management.</p>
 
