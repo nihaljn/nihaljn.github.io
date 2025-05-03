@@ -1,0 +1,374 @@
+[
+  {
+    "DOI": "10.48550/ARXIV.2112.10752",
+    "URL": "https://arxiv.org/abs/2112.10752",
+    "author": [
+      {
+        "family": "Rombach",
+        "given": "Robin"
+      },
+      {
+        "family": "Blattmann",
+        "given": "Andreas"
+      },
+      {
+        "family": "Lorenz",
+        "given": "Dominik"
+      },
+      {
+        "family": "Esser",
+        "given": "Patrick"
+      },
+      {
+        "family": "Ommer",
+        "given": "Björn"
+      }
+    ],
+    "id": "latentdiffusion",
+    "issued": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "High-resolution image synthesis with latent diffusion models",
+    "type": ""
+  },
+  {
+    "DOI": "10.48550/ARXIV.2204.06125",
+    "URL": "https://arxiv.org/abs/2204.06125",
+    "author": [
+      {
+        "family": "Ramesh",
+        "given": "Aditya"
+      },
+      {
+        "family": "Dhariwal",
+        "given": "Prafulla"
+      },
+      {
+        "family": "Nichol",
+        "given": "Alex"
+      },
+      {
+        "family": "Chu",
+        "given": "Casey"
+      },
+      {
+        "family": "Chen",
+        "given": "Mark"
+      }
+    ],
+    "id": "dalle",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "Hierarchical text-conditional image generation with CLIP latents",
+    "type": ""
+  },
+  {
+    "DOI": "10.48550/ARXIV.2206.10789",
+    "URL": "https://arxiv.org/abs/2206.10789",
+    "author": [
+      {
+        "family": "Yu",
+        "given": "Jiahui"
+      },
+      {
+        "family": "Xu",
+        "given": "Yuanzhong"
+      },
+      {
+        "family": "Koh",
+        "given": "Jing Yu"
+      },
+      {
+        "family": "Luong",
+        "given": "Thang"
+      },
+      {
+        "family": "Baid",
+        "given": "Gunjan"
+      },
+      {
+        "family": "Wang",
+        "given": "Zirui"
+      },
+      {
+        "family": "Vasudevan",
+        "given": "Vijay"
+      },
+      {
+        "family": "Ku",
+        "given": "Alexander"
+      },
+      {
+        "family": "Yang",
+        "given": "Yinfei"
+      },
+      {
+        "family": "Ayan",
+        "given": "Burcu Karagol"
+      },
+      {
+        "family": "Hutchinson",
+        "given": "Ben"
+      },
+      {
+        "family": "Han",
+        "given": "Wei"
+      },
+      {
+        "family": "Parekh",
+        "given": "Zarana"
+      },
+      {
+        "family": "Li",
+        "given": "Xin"
+      },
+      {
+        "family": "Zhang",
+        "given": "Han"
+      },
+      {
+        "family": "Baldridge",
+        "given": "Jason"
+      },
+      {
+        "family": "Wu",
+        "given": "Yonghui"
+      }
+    ],
+    "id": "parti",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "Scaling autoregressive models for content-rich text-to-image generation",
+    "type": ""
+  },
+  {
+    "DOI": "10.48550/ARXIV.2203.13131",
+    "URL": "https://arxiv.org/abs/2203.13131",
+    "author": [
+      {
+        "family": "Gafni",
+        "given": "Oran"
+      },
+      {
+        "family": "Polyak",
+        "given": "Adam"
+      },
+      {
+        "family": "Ashual",
+        "given": "Oron"
+      },
+      {
+        "family": "Sheynin",
+        "given": "Shelly"
+      },
+      {
+        "family": "Parikh",
+        "given": "Devi"
+      },
+      {
+        "family": "Taigman",
+        "given": "Yaniv"
+      }
+    ],
+    "id": "makeascene",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI), Computation and Language (cs.CL), Graphics (cs.GR), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "Make-a-scene: Scene-based text-to-image generation with human priors",
+    "title-short": "Make-a-scene",
+    "type": ""
+  },
+  {
+    "DOI": "10.48550/ARXIV.2208.01618",
+    "URL": "https://arxiv.org/abs/2208.01618",
+    "author": [
+      {
+        "family": "Gal",
+        "given": "Rinon"
+      },
+      {
+        "family": "Alaluf",
+        "given": "Yuval"
+      },
+      {
+        "family": "Atzmon",
+        "given": "Yuval"
+      },
+      {
+        "family": "Patashnik",
+        "given": "Or"
+      },
+      {
+        "family": "Bermano",
+        "given": "Amit H."
+      },
+      {
+        "family": "Chechik",
+        "given": "Gal"
+      },
+      {
+        "family": "Cohen-Or",
+        "given": "Daniel"
+      }
+    ],
+    "id": "textual-inversion",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), Computation and Language (cs.CL), Graphics (cs.GR), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "An image is worth one word: Personalizing text-to-image generation using textual inversion",
+    "title-short": "An image is worth one word",
+    "type": ""
+  },
+  {
+    "author": [
+      {
+        "family": "Carbonell",
+        "given": "Jaime"
+      },
+      {
+        "family": "Goldstein",
+        "given": "Jade"
+      }
+    ],
+    "publisher": "Proceedings of the 21st annual international ACM SIGIR conference on research and development in information retrieval",
+    "id": "mmr",
+    "issued": {
+      "date-parts": [
+        [
+          1998
+        ]
+      ]
+    },
+    "page": "335-336",
+    "title": "The use of MMR, diversity-based reranking for reordering documents and producing summaries",
+    "type": ""
+  },
+  {
+    "DOI": "10.48550/arxiv.2103.00020",
+    "URL": "https://arxiv.org/abs/2103.00020",
+    "author": [
+      {
+        "family": "Radford",
+        "given": "Alec"
+      },
+      {
+        "family": "Kim",
+        "given": "Jong Wook"
+      },
+      {
+        "family": "Hallacy",
+        "given": "Chris"
+      },
+      {
+        "family": "Ramesh",
+        "given": "Aditya"
+      },
+      {
+        "family": "Goh",
+        "given": "Gabriel"
+      },
+      {
+        "family": "Agarwal",
+        "given": "Sandhini"
+      },
+      {
+        "family": "Sastry",
+        "given": "Girish"
+      },
+      {
+        "family": "Askell",
+        "given": "Amanda"
+      },
+      {
+        "family": "Mishkin",
+        "given": "Pamela"
+      },
+      {
+        "family": "Clark",
+        "given": "Jack"
+      },
+      {
+        "family": "Krueger",
+        "given": "Gretchen"
+      },
+      {
+        "family": "Sutskever",
+        "given": "Ilya"
+      }
+    ],
+    "id": "clip",
+    "issued": {
+      "date-parts": [
+        [
+          2021
+        ]
+      ]
+    },
+    "keyword": "Computer Vision and Pattern Recognition (cs.CV), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences",
+    "publisher": "arXiv",
+    "title": "Learning transferable visual models from natural language supervision",
+    "type": ""
+  },
+  {
+    "author": [
+      {
+        "family": "Pressman",
+        "given": "John David"
+      },
+      {
+        "family": "Crowson",
+        "given": "Katherine"
+      },
+      {
+        "family": "Contributors",
+        "given": "Simulacra Captions"
+      }
+    ],
+    "id": "simulacra",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "note": " url  https://github.com/JD-P/simulacra-aesthetic-captions ",
+    "number": "Version 1.0",
+    "publisher": "Stability AI",
+    "title": "Simulacra aesthetic captions",
+    "type": "report",
+    "URL": "https://github.com/JD-P/simulacra-aesthetic-captions"
+  }
+]

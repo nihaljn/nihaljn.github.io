@@ -10,9 +10,9 @@
     <atom:link href="https://nihaljn.github.io/tags/reasoning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Language Model Reasoning in Base64</title>
-      <link>https://nihaljn.github.io/posts/language-model-reasoning-in-base64/</link>
+      <link>https://nihaljn.github.io/blog/language-model-reasoning-in-base64/</link>
       <pubDate>Sat, 26 Oct 2024 14:19:38 -0400</pubDate>
-      <guid>https://nihaljn.github.io/posts/language-model-reasoning-in-base64/</guid>
+      <guid>https://nihaljn.github.io/blog/language-model-reasoning-in-base64/</guid>
       <description>Evaluating the abilities of language models to reason in base64.</description>
     </item>
   </channel>
