@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js" integrity="sha384-........" crossorigin="anonymous"></script>
+<script>
+MathJax = {
+    tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+    },
+    svg: {
+    fontCache: 'global'
+    }
+};
+</script>
+
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>uv | Nihal Jain</title>
+<meta name="keywords" content="python">
+<meta name="description" content="uv is an extremely fast Python package installer and resolver.
+
+
+Install as: curl -LsSf https://astral.sh/uv/install.sh | sh or on MacOS as brew install uv.
+
+
+List available python versions as: uv python list
+
+
+Install specific python version as: uv python install 3.xx
+
+
+Run individual files:
+
+
+
+
+1
+2
+3
+
+
+uv run script.py
+uv run --python 3.xx script.py
+uv run --python 3.xx --with numpy script.py # run without installing the package
+
+
+
+Managing projects:
+
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+
+
+# outside the project dir
+uv init project_title 
+# inside the project dir
+uv init 
+uv init --python 3.xx
+uv add numpy # or any other package to add and install dependency
+uv sync # after updating dependencies in pyproject.toml
+uv remove numpy # to remove and uninstall a package
+uv tree # to view dependency tree
+# manually manage the dependecies inside the project dir
+uv venv
+uv venv --python 3.xx
+source .venv/bin/activate
+uv pip install numpy
+
+
+">
+<meta name="author" content="">
+<link rel="canonical" href="https://nihaljn.github.io/notes/uv/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5615f532f1cc921847848edc84b9d1f1cb4d56d704085bc8148f86d5f6593ac5.css" integrity="sha256-VhX1MvHMkhhHhI7chLnR8ctNVtcECFvIFI&#43;G1fZZOsU=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nihaljn.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nihaljn.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://nihaljn.github.io/notes/uv/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@100..900&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css" rel="stylesheet">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BZ254GT1K"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9BZ254GT1K');
+        }
+      </script><meta property="og:url" content="https://nihaljn.github.io/notes/uv/">
+  <meta property="og:site_name" content="Nihal Jain">
+  <meta property="og:title" content="uv">
+  <meta property="og:description" content="uv is an extremely fast Python package installer and resolver.
+Install as: curl -LsSf https://astral.sh/uv/install.sh | sh or on MacOS as brew install uv.
+List available python versions as: uv python list
+Install specific python version as: uv python install 3.xx
+Run individual files:
+1 2 3 uv run script.py uv run --python 3.xx script.py uv run --python 3.xx --with numpy script.py # run without installing the package Managing projects: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # outside the project dir uv init project_title # inside the project dir uv init uv init --python 3.xx uv add numpy # or any other package to add and install dependency uv sync # after updating dependencies in pyproject.toml uv remove numpy # to remove and uninstall a package uv tree # to view dependency tree # manually manage the dependecies inside the project dir uv venv uv venv --python 3.xx source .venv/bin/activate uv pip install numpy ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-06-28T15:27:45-04:00">
+    <meta property="article:modified_time" content="2025-06-28T15:27:45-04:00">
+    <meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="uv">
+<meta name="twitter:description" content="uv is an extremely fast Python package installer and resolver.
+
+
+Install as: curl -LsSf https://astral.sh/uv/install.sh | sh or on MacOS as brew install uv.
+
+
+List available python versions as: uv python list
+
+
+Install specific python version as: uv python install 3.xx
+
+
+Run individual files:
+
+
+
+
+1
+2
+3
+
+
+uv run script.py
+uv run --python 3.xx script.py
+uv run --python 3.xx --with numpy script.py # run without installing the package
+
+
+
+Managing projects:
+
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+
+
+# outside the project dir
+uv init project_title 
+# inside the project dir
+uv init 
+uv init --python 3.xx
+uv add numpy # or any other package to add and install dependency
+uv sync # after updating dependencies in pyproject.toml
+uv remove numpy # to remove and uninstall a package
+uv tree # to view dependency tree
+# manually manage the dependecies inside the project dir
+uv venv
+uv venv --python 3.xx
+source .venv/bin/activate
+uv pip install numpy
+
+
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "https://nihaljn.github.io/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "uv",
+      "item": "https://nihaljn.github.io/notes/uv/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "uv",
+  "name": "uv",
+  "description": "uv is an extremely fast Python package installer and resolver.\nInstall as: curl -LsSf https://astral.sh/uv/install.sh | sh or on MacOS as brew install uv.\nList available python versions as: uv python list\nInstall specific python version as: uv python install 3.xx\nRun individual files:\n1 2 3 uv run script.py uv run --python 3.xx script.py uv run --python 3.xx --with numpy script.py # run without installing the package Managing projects: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # outside the project dir uv init project_title # inside the project dir uv init uv init --python 3.xx uv add numpy # or any other package to add and install dependency uv sync # after updating dependencies in pyproject.toml uv remove numpy # to remove and uninstall a package uv tree # to view dependency tree # manually manage the dependecies inside the project dir uv venv uv venv --python 3.xx source .venv/bin/activate uv pip install numpy ",
+  "keywords": [
+    "python"
+  ],
+  "articleBody": "uv is an extremely fast Python package installer and resolver.\nInstall as: curl -LsSf https://astral.sh/uv/install.sh | sh or on MacOS as brew install uv.\nList available python versions as: uv python list\nInstall specific python version as: uv python install 3.xx\nRun individual files:\n1 2 3 uv run script.py uv run --python 3.xx script.py uv run --python 3.xx --with numpy script.py # run without installing the package Managing projects: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 # outside the project dir uv init project_title # inside the project dir uv init uv init --python 3.xx uv add numpy # or any other package to add and install dependency uv sync # after updating dependencies in pyproject.toml uv remove numpy # to remove and uninstall a package uv tree # to view dependency tree # manually manage the dependecies inside the project dir uv venv uv venv --python 3.xx source .venv/bin/activate uv pip install numpy ",
+  "wordCount" : "162",
+  "inLanguage": "en",
+  "datePublished": "2025-06-28T15:27:45-04:00",
+  "dateModified": "2025-06-28T15:27:45-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nihaljn.github.io/notes/uv/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nihal Jain",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nihaljn.github.io/scs-favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nihaljn.github.io/" accesskey="h" title="Nihal Jain (Alt + H)">Nihal Jain</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://nihaljn.github.io/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nihaljn.github.io/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nihaljn.github.io/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://nihaljn.github.io/shared/Nihal_Jain_CV_02-25.pdf" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      uv
+    </h1>
+    
+    <div class="post-tags-meta">
+      <a href="https://nihaljn.github.io/tags/python/" class="post-tag">python</a>
+    </div>
+    <div class="post-meta"><span title='2025-06-28 15:27:45 -0400 EDT'>June 28, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><code>uv</code> is an extremely fast Python package installer and resolver.</p>
+<ul>
+<li>
+<p><strong>Install</strong> as: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code> or on MacOS as <code>brew install uv</code>.</p>
+</li>
+<li>
+<p><strong>List</strong> available python versions as: <code>uv python list</code></p>
+</li>
+<li>
+<p><strong>Install specific python version</strong> as: <code>uv python install 3.xx</code></p>
+</li>
+<li>
+<p><strong>Run individual files</strong>:</p>
+</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>uv run script.py
+</span></span><span style="display:flex;"><span>uv run --python 3.xx script.py
+</span></span><span style="display:flex;"><span>uv run --python 3.xx --with numpy script.py <span style="color:#75715e"># run without installing the package</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>Managing projects</strong>:</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># outside the project dir</span>
+</span></span><span style="display:flex;"><span>uv init project_title 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># inside the project dir</span>
+</span></span><span style="display:flex;"><span>uv init 
+</span></span><span style="display:flex;"><span>uv init --python 3.xx
+</span></span><span style="display:flex;"><span>uv add numpy <span style="color:#75715e"># or any other package to add and install dependency</span>
+</span></span><span style="display:flex;"><span>uv sync <span style="color:#75715e"># after updating dependencies in pyproject.toml</span>
+</span></span><span style="display:flex;"><span>uv remove numpy <span style="color:#75715e"># to remove and uninstall a package</span>
+</span></span><span style="display:flex;"><span>uv tree <span style="color:#75715e"># to view dependency tree</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># manually manage the dependecies inside the project dir</span>
+</span></span><span style="display:flex;"><span>uv venv
+</span></span><span style="display:flex;"><span>uv venv --python 3.xx
+</span></span><span style="display:flex;"><span>source .venv/bin/activate
+</span></span><span style="display:flex;"><span>uv pip install numpy
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+  </div>
+
+  <footer class="post-footer">
+    
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://nihaljn.github.io/">Nihal Jain</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const footerSpans = document.querySelectorAll("footer.footer span");
+    footerSpans.forEach(span => {
+    if (span.textContent.includes("Powered by")) {
+        
+        span.innerHTML = span.innerHTML.replace("Powered by", "Theme based on");
+    }
+    });
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
