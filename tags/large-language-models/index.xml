@@ -6,21 +6,8 @@
     <description>Recent content in large-language-models on Nihal Jain</description>
     <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Mar 2025 23:50:04 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 26 Oct 2024 14:19:38 -0400</lastBuildDate>
     <atom:link href="https://nihaljn.github.io/tags/large-language-models/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Claude 3.7 Sonnet and Claude Code</title>
-      <link>https://nihaljn.github.io/notes/claude-3.7-sonnet-and-claude-code/</link>
-      <pubDate>Mon, 24 Mar 2025 23:50:04 -0400</pubDate>
-      <guid>https://nihaljn.github.io/notes/claude-3.7-sonnet-and-claude-code/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.anthropic.com/news/claude-3-7-sonnet&#34;&gt;Link&lt;/a&gt;. Originally published: Feb 24, 2025.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;we’re announcing Claude 3.7 Sonnet1, our most intelligent model to date and the first hybrid reasoning model on the market.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;API users also have fine-grained control over &lt;em&gt;how long&lt;/em&gt; the model can think for&lt;/p&gt;&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;we’re also introducing a command line tool for agentic coding, Claude Code. Claude Code is available as a limited research preview, and enables developers to delegate substantial engineering tasks to Claude directly from their terminal.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Language Model Reasoning in Base64</title>
       <link>https://nihaljn.github.io/blog/language-model-reasoning-in-base64/</link>
