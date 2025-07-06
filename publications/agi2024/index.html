@@ -25,7 +25,7 @@ MathJax = {
 <meta name="description" content="The Amazon Nova Family of Models - Nihal Jain">
 <meta name="author" content="">
 <link rel="canonical" href="https://nihaljn.github.io/publications/agi2024/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.8307158a4e843dc4a0563cb1daf326d2c33e7c4c354b79b156e702d7261bfe55.css" integrity="sha256-gwcVik6EPcSgVjyx2vMm0sM&#43;fEw1S3mxVucC1yYb/lU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0f3ae717dfbf6907b353c576701d5890a835da7b33abd31d72ca728788c99dd1.css" integrity="sha256-DzrnF9&#43;/aQezU8V2cB1YkKg12nszq9Mdcspyh4jJndE=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -63,6 +63,49 @@ MathJax = {
             ]
         });
     });
+</script><script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('theme-toggle');
+    if (toggleButton) {
+        
+        const moonIcon = toggleButton.querySelector('#moon');
+        const sunIcon = toggleButton.querySelector('#sun');
+        
+        
+        const wrapper = document.createElement('div');
+        wrapper.className = 'theme-toggle-wrapper';
+        
+        
+        const menu = document.getElementById('menu');
+        if (menu) {
+            const menuItem = document.createElement('li');
+            menuItem.appendChild(wrapper);
+            menu.appendChild(menuItem);
+        } else {
+            
+            toggleButton.parentNode.insertBefore(wrapper, toggleButton);
+        }
+        
+        if (sunIcon) {
+            toggleButton.removeChild(sunIcon);
+            wrapper.appendChild(sunIcon);
+        }
+        
+        
+        wrapper.appendChild(toggleButton);
+
+        
+        if (moonIcon) {
+            toggleButton.removeChild(moonIcon);
+            wrapper.appendChild(moonIcon);
+        }
+        
+        
+        const thumb = document.createElement('div');
+        thumb.className = 'toggle-thumb';
+        toggleButton.appendChild(thumb);
+    }
+});
 </script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BZ254GT1K"></script>
       <script>
