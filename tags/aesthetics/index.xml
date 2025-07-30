@@ -10,9 +10,9 @@
     <atom:link href="https://nihaljn.github.io/tags/aesthetics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>matplotlib rcParams</title>
-      <link>https://nihaljn.github.io/notes/matplotlib-rcparams/</link>
+      <link>https://nihaljn.github.io/blog/matplotlib-rcparams/</link>
       <pubDate>Tue, 15 Apr 2025 20:08:56 -0400</pubDate>
-      <guid>https://nihaljn.github.io/notes/matplotlib-rcparams/</guid>
+      <guid>https://nihaljn.github.io/blog/matplotlib-rcparams/</guid>
       <description>&lt;p&gt;I like to make my &lt;code&gt;matplotlib&lt;/code&gt; plots aesthetically pleasing. For each new project, I end up creating a fresh &amp;ldquo;aesthetic setup&amp;rdquo; for my plots; this causes inconsistencies across my visualizations and unnecessary overhead.&lt;/p&gt;
 &lt;p&gt;So, I decided to swallow the bitter pill, and learn about customizing &lt;code&gt;matplotlib&lt;/code&gt; the proper way. Thankfully, there is a neat &lt;a href=&#34;https://matplotlib.org/stable/users/explain/customizing.html&#34;&gt;blog&lt;/a&gt; explaining this. The recommendation appears to be overriding a dict-like variable &lt;code&gt;matplotlib.rcParams&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;I will use this space to log my most current &lt;code&gt;rcParams&lt;/code&gt; overrides and some rationale behind the design where needed. I expect this to evolve over time, and I will try my best to log details when making changes.&lt;/p&gt;</description>

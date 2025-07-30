@@ -10,9 +10,9 @@
     <atom:link href="https://nihaljn.github.io/tags/quotes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Weak Programming Patterns</title>
-      <link>https://nihaljn.github.io/notes/weak-programming-patterns/</link>
+      <link>https://nihaljn.github.io/blog/weak-programming-patterns/</link>
       <pubDate>Sat, 29 Mar 2025 00:36:55 -0400</pubDate>
-      <guid>https://nihaljn.github.io/notes/weak-programming-patterns/</guid>
+      <guid>https://nihaljn.github.io/blog/weak-programming-patterns/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;When I see patterns in my programs, I consider it a sign of trouble. The shape of a program should reflect only the problem it needs to solve. Any other regularity in the code is a sign, to me at least, that I&amp;rsquo;m using abstractions that aren&amp;rsquo;t powerful enough&amp;ndash; often that I&amp;rsquo;m generating by hand the expansions of some macro that I need to write.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;From &amp;ldquo;Revenge of the Nerds&amp;rdquo; by Paul Graham [&lt;a href=&#34;https://www.paulgraham.com/icad.html&#34;&gt;Link&lt;/a&gt;].&lt;/p&gt;</description>
