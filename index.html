@@ -17,7 +17,7 @@ MathJax = {
 
 
 <head>
-	<meta name="generator" content="Hugo 0.148.2"><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.150.0"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -26,8 +26,8 @@ MathJax = {
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://nihaljn.github.io/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1c61b29ce9b11774aae3436c32dab244b5edc7d9aaca79495880fee8db6db5de.css" integrity="sha256-HGGynOmxF3Sq40NsMtqyRLXtx9mqynlJWID&#43;6Ntttd4=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://nihaljn.github.io/scs-favicon.ico">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2f9a6f61cc4f7914f7e2a5b81d36553a7ef3561e4d81db12baa01d90271436f7.css" integrity="sha256-L5pvYcxPeRT34qW4HTZVOn7zVh5NgdsSuqAdkCcUNvc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nihaljn.github.io/columbia-favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
 <link rel="apple-touch-icon" href="https://nihaljn.github.io/apple-touch-icon.png">
@@ -108,6 +108,27 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButton.appendChild(thumb);
     }
 });
+</script><script>
+function toggleSection(sectionId) {
+    const content = document.getElementById(sectionId + '-content');
+    const button = document.querySelector('.' + sectionId + '-toggle');
+    const arrow = document.getElementById(sectionId + '-arrow');
+    
+    if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        button.classList.remove('expanded');
+        arrow.textContent = '▶';
+    } else {
+        content.classList.add('expanded');
+        button.classList.add('expanded');
+        arrow.textContent = '▼';
+    }
+}
+
+
+function toggleMoreInfo() {
+    toggleSection('more-info');
+}
 </script>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BZ254GT1K"></script>
       <script>
@@ -138,9 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
   "name": "Nihal Jain",
   "url": "https://nihaljn.github.io/",
   "description": "",
-  "logo": "https://nihaljn.github.io/scs-favicon.ico",
+  "logo": "https://nihaljn.github.io/columbia-favicon.png",
   "sameAs": [
-      "mailto:nihalj@cs.cmu.edu", "https://github.com/nihaljn", "https://x.com/nihal_jain_1", "https://scholar.google.com/citations?user=5b8b5V8AAAAJ\u0026hl=en"
+      "https://github.com/nihaljn", "https://x.com/nihal_jain_1", "https://scholar.google.com/citations?user=5b8b5V8AAAAJ\u0026hl=en"
   ]
 }
 </script>
@@ -214,18 +235,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h1>Hello! <span lang='hi'>नमस्ते।</span></h1>
                 </header>
                 <div class="entry-content">
-                    I'm an Applied Scientist in the <a href='https://aws.amazon.com/q/developer/' style='color:#49a6fc'>Amazon Q Developer</a> (formerly CodeWhisperer) team, where I train Large Language Models (LLMs) for code generation. <br><br> I hold an MS in Machine Learning from Carnegie Mellon University and a BE in Computer Science from BITS, Pilani - Hyderabad Campus. <br><br> I'm broadly interested in improving the reasoning abilities, reliability and our understanding of language models.
+                    I'm a first-year Computer Science Ph.D. student at Columbia University in the wonderful New York City, where I'm fortunate to be advised by <a href="https://www.cs.columbia.edu/~suman/" style='color:#49a6fc'>Prof. Suman Jana</a>. 
+
+<br><br>
+
+I'm interested in improving the reliability, reasoning abilities and our understanding of language models. Language models (and systems built over them) are very brittle; my goal is to understand why this is so and the principles that may fix their brittleness.
+
+<br><br>
+
+If you believe I can help you in any way or you'd like just to chat, message me at: <code style='font-size: 0.9em !important'>nihal.jain [at] columbia [dot] edu</code>. I'm also available at the following channels:
                 </div>
                 <footer class="entry-footer">
                     <div class="social-icons" >
-    <a href="mailto:nihalj@cs.cmu.edu" target="_blank" rel="noopener noreferrer me"
-        title="Email">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-    <polyline points="22,6 12,13 2,6"></polyline>
-</svg>
-    </a>
     <a href="https://github.com/nihaljn" target="_blank" rel="noopener noreferrer me"
         title="GitHub">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -264,6 +285,55 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
         
+    </div>
+    
+    
+    <div class="toggle-section">
+        <button class="toggle-button more-info-toggle" onclick="toggleSection('more-info')">
+            More info <span id="more-info-arrow" class="toggle-arrow">▶</span>
+        </button>
+        <div id="more-info-content" class="toggle-content">
+            <h3>Recent past</h3>
+
+Before starting my Ph.D., I was an Applied Scientist in the <a href='https://aws.amazon.com/q/developer/' style='color:#49a6fc'>Amazon Q Developer</a> team, where I trained large language models (LLMs) for code generation.
+
+<br><br>
+
+Even before that, I obtained an M.S. in Machine Learning at Carnegie Mellon University (Pittsburgh, USA) and a B.E. in Computer Science at the Birla Institute of Technology & Science (BITS), Pilani (Hyderabad Campus, India). During these years, I've had the pleasure of working on many cool AI projects at labs like the Indian Space Research Organisation (ISRO) and Adobe Research.
+
+<br><br>
+
+I grew up in Mumbai, India, and the chaotic similarities between the cities probably explain why I love New York City so much.
+
+<br><br>
+
+<h3>Other interests</h3>
+
+Outside of my research, I'm interested in pretty much everything. However, my fascination for astronomy, philosophy and tennis stand out. I also write poetry sometimes.
+
+<br><br>
+
+<h3>This website</h3>
+
+Loosely inspired by <a href="https://lilianweng.github.io/" style="color:#49a6fc">this</a>, I started developing this site on my own in 2022. Then ChatGPT came around. Since then I've been collaborating with <em>some</em> AI tool (currently Claude Code) to make this site better.
+
+<br><br>
+
+I also <a href="/blog" style="color:#49a6fc">blog</a> about topics that interest me and maintain <a href="/notes" style="color:#49a6fc">notes</a> on subjects I learn about. We'll see how long I can keep this up.
+        </div>
+    </div>
+
+    <div class="toggle-section">
+        <button class="toggle-button news-toggle" onclick="toggleSection('news')">
+            News <span id="news-arrow" class="toggle-arrow">▶</span>
+        </button>
+        <div id="news-content" class="toggle-content">
+            <div style="display: flex;">
+    <div style="width: 140px; flex-shrink: 0;"><strong>September 2025</strong></div>
+    <div>Started Ph.D. in Computer Science at Columbia University in New York City</div>
+</div>
+
+        </div>
     </div>
 </div>
 

@@ -2,10 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://nihaljn.github.io/blog/</loc>
-    <lastmod>2025-08-04T20:57:47-04:00</lastmod>
-  </url><url>
     <loc>https://nihaljn.github.io/</loc>
+    <lastmod>2025-09-09T21:10:33-04:00</lastmod>
+  </url><url>
+    <loc>https://nihaljn.github.io/notes/</loc>
+    <lastmod>2025-09-09T21:10:33-04:00</lastmod>
+  </url><url>
+    <loc>https://nihaljn.github.io/blog/</loc>
     <lastmod>2025-08-04T20:57:47-04:00</lastmod>
   </url><url>
     <loc>https://nihaljn.github.io/tags/computer-science-theory/</loc>
@@ -16,9 +19,6 @@
   </url><url>
     <loc>https://nihaljn.github.io/tags/</loc>
     <lastmod>2025-08-01T02:40:34-04:00</lastmod>
-  </url><url>
-    <loc>https://nihaljn.github.io/notes/</loc>
-    <lastmod>2025-06-29T20:29:52-04:00</lastmod>
   </url><url>
     <loc>https://nihaljn.github.io/blog/uv/</loc>
     <lastmod>2025-06-28T15:27:45-04:00</lastmod>
