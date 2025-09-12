@@ -117,11 +117,11 @@ function toggleSection(sectionId) {
     if (content.classList.contains('expanded')) {
         content.classList.remove('expanded');
         button.classList.remove('expanded');
-        arrow.textContent = '▶';
+        arrow.innerHTML = '&#9654;';
     } else {
         content.classList.add('expanded');
         button.classList.add('expanded');
-        arrow.textContent = '▼';
+        arrow.innerHTML = '&#9660;';
     }
 }
 
@@ -290,7 +290,7 @@ If you believe I can help you in any way or you'd like just to chat, message me 
     
     <div class="toggle-section">
         <button class="toggle-button more-info-toggle" onclick="toggleSection('more-info')">
-            More info <span id="more-info-arrow" class="toggle-arrow">'▶'</span>
+            More info <span id="more-info-arrow" class="toggle-arrow">&#9654;</span>
         </button>
         <div id="more-info-content" class="toggle-content">
             <h3>Recent past</h3>
@@ -325,7 +325,7 @@ I also <a href="/blog" style="color:#49a6fc">blog</a> about topics that interest
 
     <div class="toggle-section">
         <button class="toggle-button news-toggle" onclick="toggleSection('news')">
-            News <span id="news-arrow" class="toggle-arrow">'▶'</span>
+            News <span id="news-arrow" class="toggle-arrow">&#9654;</span>
         </button>
         <div id="news-content" class="toggle-content">
             <div style="display: flex;">

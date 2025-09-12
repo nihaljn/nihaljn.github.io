@@ -179,11 +179,11 @@ function toggleSection(sectionId) {
     if (content.classList.contains('expanded')) {
         content.classList.remove('expanded');
         button.classList.remove('expanded');
-        arrow.textContent = '▶';
+        arrow.innerHTML = '&#9654;';
     } else {
         content.classList.add('expanded');
         button.classList.add('expanded');
-        arrow.textContent = '▼';
+        arrow.innerHTML = '&#9660;';
     }
 }
 
