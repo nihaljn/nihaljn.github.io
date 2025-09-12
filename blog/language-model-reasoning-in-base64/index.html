@@ -25,7 +25,7 @@ MathJax = {
 <meta name="description" content="Evaluating the abilities of language models to reason in base64.">
 <meta name="author" content="Nihal Jain">
 <link rel="canonical" href="https://nihaljn.github.io/blog/language-model-reasoning-in-base64/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.2f9a6f61cc4f7914f7e2a5b81d36553a7ef3561e4d81db12baa01d90271436f7.css" integrity="sha256-L5pvYcxPeRT34qW4HTZVOn7zVh5NgdsSuqAdkCcUNvc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.d628c2ecee6ccaec805403c7713c936928edb52d36184cf773c8c269a8a42861.css" integrity="sha256-1ijC7O5syuyAVAPHcTyTaSjttS02GEz3c8jCaaikKGE=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nihaljn.github.io/columbia-favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -115,11 +115,11 @@ function toggleSection(sectionId) {
     if (content.classList.contains('expanded')) {
         content.classList.remove('expanded');
         button.classList.remove('expanded');
-        arrow.innerHTML = '&#9654;';
+        arrow.textContent = '>';
     } else {
         content.classList.add('expanded');
         button.classList.add('expanded');
-        arrow.innerHTML = '&#9660;';
+        arrow.textContent = 'v';
     }
 }
 
