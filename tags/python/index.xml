@@ -10,9 +10,9 @@
     <atom:link href="https://nihaljn.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>`uv`</title>
-      <link>https://nihaljn.github.io/blog/uv/</link>
+      <link>https://nihaljn.github.io/personal/uv/</link>
       <pubDate>Sat, 28 Jun 2025 15:27:45 -0400</pubDate>
-      <guid>https://nihaljn.github.io/blog/uv/</guid>
+      <guid>https://nihaljn.github.io/personal/uv/</guid>
       <description>&lt;p&gt;&lt;code&gt;uv&lt;/code&gt; is an extremely fast Python package installer and resolver.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -81,9 +81,9 @@
     </item>
     <item>
       <title>`matplotlib.rcParams`</title>
-      <link>https://nihaljn.github.io/blog/matplotlib-rcparams/</link>
+      <link>https://nihaljn.github.io/personal/matplotlib-rcparams/</link>
       <pubDate>Tue, 15 Apr 2025 20:08:56 -0400</pubDate>
-      <guid>https://nihaljn.github.io/blog/matplotlib-rcparams/</guid>
+      <guid>https://nihaljn.github.io/personal/matplotlib-rcparams/</guid>
       <description>&lt;p&gt;I like to make my &lt;code&gt;matplotlib&lt;/code&gt; plots aesthetically pleasing. For each new project, I end up creating a fresh &amp;ldquo;aesthetic setup&amp;rdquo; for my plots; this causes inconsistencies across my visualizations and unnecessary overhead.&lt;/p&gt;
 &lt;p&gt;So, I decided to swallow the bitter pill, and learn about customizing &lt;code&gt;matplotlib&lt;/code&gt; the proper way. Thankfully, there is a neat &lt;a href=&#34;https://matplotlib.org/stable/users/explain/customizing.html&#34;&gt;blog&lt;/a&gt; explaining this. The recommendation appears to be overriding a dict-like variable &lt;code&gt;matplotlib.rcParams&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;I will use this space to log my most current &lt;code&gt;rcParams&lt;/code&gt; overrides and some rationale behind the design where needed. I expect this to evolve over time, and I will try my best to log details when making changes.&lt;/p&gt;</description>

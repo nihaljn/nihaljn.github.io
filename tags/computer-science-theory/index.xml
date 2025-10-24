@@ -10,9 +10,9 @@
     <atom:link href="https://nihaljn.github.io/tags/computer-science-theory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kolmogorov Complexity</title>
-      <link>https://nihaljn.github.io/blog/kolmogorov-complexity/</link>
+      <link>https://nihaljn.github.io/personal/kolmogorov-complexity/</link>
       <pubDate>Fri, 01 Aug 2025 02:40:34 -0400</pubDate>
-      <guid>https://nihaljn.github.io/blog/kolmogorov-complexity/</guid>
+      <guid>https://nihaljn.github.io/personal/kolmogorov-complexity/</guid>
       <description>&lt;p&gt;Kolmogorov Complexity ($K$) is a way of measuring how complex an object is. For string objects, it is formally defined as the length of the shortest program that generates the string.&lt;/p&gt;
 &lt;p&gt;For e.g., consider two strings $s:=101010101010$ and $t:=001110101110$. It&amp;rsquo;s trivial to see how $s$ is less complex, and $K$ helps quantify this. The shortest (Python-style) programs generating these would be &lt;code&gt;print(&amp;quot;10&amp;quot;*6)&lt;/code&gt; and &lt;code&gt;print(&amp;quot;001110101110&amp;quot;)&lt;/code&gt; respectively, making $K(s) = 13$ and $K(t) = 21$.&lt;/p&gt;</description>
     </item>

@@ -10,9 +10,9 @@
     <atom:link href="https://nihaljn.github.io/tags/os/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hardlinks and softlinks</title>
-      <link>https://nihaljn.github.io/blog/hardlinks-and-softlinks/</link>
+      <link>https://nihaljn.github.io/personal/hardlinks-and-softlinks/</link>
       <pubDate>Fri, 28 Mar 2025 21:55:14 -0400</pubDate>
-      <guid>https://nihaljn.github.io/blog/hardlinks-and-softlinks/</guid>
+      <guid>https://nihaljn.github.io/personal/hardlinks-and-softlinks/</guid>
       <description>&lt;p&gt;A hardlink is a file pointing to the same disk location as another file. On the other hand, a softlink (or symlink) is a file containing the path to another target file. Represented diagramatically:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
