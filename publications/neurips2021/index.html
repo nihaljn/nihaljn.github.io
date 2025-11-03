@@ -25,7 +25,7 @@ MathJax = {
 <meta name="description" content="Inspiration Retrieval for Visual Exploration - Nihal Jain">
 <meta name="author" content="">
 <link rel="canonical" href="https://nihaljn.github.io/publications/neurips2021/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bde63515e49a28619632cc9d43ea5fc2e6b655fdd6ef12aae19c4429f4bca43d.css" integrity="sha256-veY1FeSaKGGWMsydQ&#43;pfwua2Vf3W7xKq4ZxEKfS8pD0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1471cab6c05cac4df8eae81c1853437379637fc4e8137d5b40fd8bbcf74b6d68.css" integrity="sha256-FHHKtsBcrE346ugcGFNDc3ljf8ToE31bQP2LvPdLbWg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nihaljn.github.io/columbia-favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -43,11 +43,41 @@ MathJax = {
 
     </style>
 </noscript>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams',
+      packages: {
+        '[+]': ['base', 'ams', 'newcommand', 'configmacros', 'action']
+      }
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    svg: {
+      fontCache: 'global',
+      scale: 1,
+      minScale: 0.5,
+      mtextInheritFont: false,
+      merrorInheritFont: true,
+      mathmlSpacing: false,
+      skipAttributes: {},
+      exFactor: 0.5,
+      displayAlign: 'center',
+      displayIndent: '0'
+    },
+    loader: {
+      load: ['[tex]/ams', '[tex]/newcommand', '[tex]/configmacros']
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js"></script>
 
 
 
