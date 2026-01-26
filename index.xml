@@ -6,8 +6,19 @@
     <description>Recent content on Nihal Jain</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Jan 2026 23:31:33 -0530</lastBuildDate>
     <atom:link href="https://nihaljn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Computing</title>
+      <link>https://nihaljn.github.io/notes/quantum-computing/</link>
+      <pubDate>Sun, 25 Jan 2026 23:31:33 -0530</pubDate>
+      <guid>https://nihaljn.github.io/notes/quantum-computing/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Selected notes from COMS 4281 Introduction to Quantum Computing taught by Prof. Henry Yuen in Fall 2025.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;qubits&#34;&gt;Qubits&lt;/h2&gt;
+&lt;p&gt;A &lt;strong&gt;quantum bit&lt;/strong&gt; (or qubit) is the basic unit of information in quantum computing. Unlike classical bits that are exclusively 0 or 1, a qubit exists in a &lt;strong&gt;superposition&lt;/strong&gt; of both states. However, upon measurement, the qubit collapses to a classical bit value.&lt;/p&gt;
+&lt;p&gt;Mathematically, a qubit state is represented as:
+$$|\psi\rangle = \alpha|0\rangle + \beta|1\rangle$$&lt;/p&gt;</description>
+    </item>
     <item>
       <title>On Mitigating Code LLM Hallucinations with API Documentation</title>
       <link>https://nihaljn.github.io/publications/icse2025/</link>
