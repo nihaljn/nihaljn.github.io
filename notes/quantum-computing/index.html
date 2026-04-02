@@ -29,7 +29,7 @@ Mathematically, a qubit state is represented as:
 $$|\psi\rangle = \alpha|0\rangle &#43; \beta|1\rangle$$">
 <meta name="author" content="">
 <link rel="canonical" href="https://nihaljn.github.io/notes/quantum-computing/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.1471cab6c05cac4df8eae81c1853437379637fc4e8137d5b40fd8bbcf74b6d68.css" integrity="sha256-FHHKtsBcrE346ugcGFNDc3ljf8ToE31bQP2LvPdLbWg=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.40e009d08f2db7779be4357da71c1507acccef1023c61aeb35dc04f883a6dcc5.css" integrity="sha256-QOAJ0I8tt3eb5DV9pxwVB6zM7xAjxhrrNdwE&#43;IOm3MU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nihaljn.github.io/columbia-favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
@@ -321,139 +321,7 @@ $$|\psi\rangle = \alpha|0\rangle &#43; \beta|1\rangle$$">
     <div class="post-meta"><span title='2026-01-25 23:31:33 -0530 -0530'>January 25, 2026</span>
 
 </div>
-  </header> <div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#qubits" aria-label="Qubits">Qubits</a></li>
-                <li>
-                    <a href="#systems-and-states" aria-label="Systems and States">Systems and States</a><ul>
-                        
-                <li>
-                    <a href="#composite-systems" aria-label="Composite Systems">Composite Systems</a></li></ul>
-                </li>
-                <li>
-                    <a href="#measurement" aria-label="Measurement">Measurement</a></li>
-                <li>
-                    <a href="#common-quantum-gates" aria-label="Common Quantum Gates">Common Quantum Gates</a><ul>
-                        
-                <li>
-                    <a href="#single-qubit-gates" aria-label="Single-Qubit Gates">Single-Qubit Gates</a></li>
-                <li>
-                    <a href="#two-qubit-gates" aria-label="Two-Qubit Gates">Two-Qubit Gates</a></li></ul>
-                </li>
-                <li>
-                    <a href="#partial-measurements-in-non-standard-bases" aria-label="Partial Measurements in Non-Standard Bases">Partial Measurements in Non-Standard Bases</a><ul>
-                        
-                <li>
-                    <a href="#measuring-in-different-bases" aria-label="Measuring in Different Bases">Measuring in Different Bases</a></li>
-                <li>
-                    <a href="#example-measuring-in-rangle--rangle-basis" aria-label="Example: Measuring in ${|&#43;\rangle, |-\rangle}$ Basis">Example: Measuring in ${|+\rangle, |-\rangle}$ Basis</a></li></ul>
-                </li>
-                <li>
-                    <a href="#bell-states" aria-label="Bell States">Bell States</a><ul>
-                        
-                <li>
-                    <a href="#creating-bell-states" aria-label="Creating Bell States">Creating Bell States</a></li>
-                <li>
-                    <a href="#distinguishing-bell-states-with-cnot" aria-label="Distinguishing Bell States with CNOT">Distinguishing Bell States with CNOT</a></li></ul>
-                </li>
-                <li>
-                    <a href="#quantum-teleportation" aria-label="Quantum Teleportation">Quantum Teleportation</a><ul>
-                        
-                <li>
-                    <a href="#circuit" aria-label="Circuit">Circuit</a></li>
-                <li>
-                    <a href="#step-by-step-evolution" aria-label="Step-by-Step Evolution">Step-by-Step Evolution</a></li>
-                <li>
-                    <a href="#measurement-results-and-corrections" aria-label="Measurement Results and Corrections">Measurement Results and Corrections</a></li></ul>
-                </li>
-                <li>
-                    <a href="#information-theory-in-quantum-computing" aria-label="Information Theory in Quantum Computing">Information Theory in Quantum Computing</a><ul>
-                        
-                <li>
-                    <a href="#amount-of-information" aria-label="Amount of Information">Amount of Information</a></li>
-                <li>
-                    <a href="#holevos-theorem" aria-label="Holevo&rsquo;s Theorem">Holevo&rsquo;s Theorem</a></li>
-                <li>
-                    <a href="#superdense-coding" aria-label="Superdense Coding">Superdense Coding</a></li></ul>
-                </li>
-                <li>
-                    <a href="#qubit-rotation" aria-label="Qubit Rotation">Qubit Rotation</a><ul>
-                        
-                <li>
-                    <a href="#examples" aria-label="Examples">Examples</a></li>
-                <li>
-                    <a href="#rotating-two-qubits-simultaneously" aria-label="Rotating Two Qubits Simultaneously">Rotating Two Qubits Simultaneously</a></li></ul>
-                </li>
-                <li>
-                    <a href="#application-of-rotation-chsh-game" aria-label="Application of Rotation: CHSH Game">Application of Rotation: CHSH Game</a><ul>
-                        
-                <li>
-                    <a href="#game-setup" aria-label="Game Setup">Game Setup</a></li>
-                <li>
-                    <a href="#quantum-strategy" aria-label="Quantum Strategy">Quantum Strategy</a></li>
-                <li>
-                    <a href="#analysis-for-x0-y0" aria-label="Analysis for $x=0, y=0$">Analysis for $x=0, y=0$</a></li></ul>
-                </li>
-                <li>
-                    <a href="#universal-gate-sets" aria-label="Universal Gate Sets">Universal Gate Sets</a><ul>
-                        
-                <li>
-                    <a href="#example-1-continuous-rotations--phase-shift" aria-label="Example 1: Continuous Rotations &#43; Phase Shift">Example 1: Continuous Rotations + Phase Shift</a></li>
-                <li>
-                    <a href="#example-2-discrete--finite-gates" aria-label="Example 2: Discrete &#43; Finite Gates">Example 2: Discrete + Finite Gates</a></li></ul>
-                </li>
-                <li>
-                    <a href="#deutschs-algorithm" aria-label="Deutsch&rsquo;s Algorithm">Deutsch&rsquo;s Algorithm</a><ul>
-                        
-                <li>
-                    <a href="#quantum-oracle" aria-label="Quantum Oracle">Quantum Oracle</a></li>
-                <li>
-                    <a href="#circuit-1" aria-label="Circuit">Circuit</a></li>
-                <li>
-                    <a href="#analysis" aria-label="Analysis">Analysis</a></li></ul>
-                </li>
-                <li>
-                    <a href="#phase-kickback" aria-label="Phase Kickback">Phase Kickback</a><ul>
-                        
-                <li>
-                    <a href="#general-principle" aria-label="General Principle">General Principle</a></li>
-                <li>
-                    <a href="#application-in-deutschs-algorithm" aria-label="Application in Deutsch&rsquo;s Algorithm">Application in Deutsch&rsquo;s Algorithm</a></li></ul>
-                </li>
-                <li>
-                    <a href="#hadamard-transform-on-multiple-qubits" aria-label="Hadamard Transform on Multiple Qubits">Hadamard Transform on Multiple Qubits</a><ul>
-                        
-                <li>
-                    <a href="#single-qubit-formula" aria-label="Single Qubit Formula">Single Qubit Formula</a></li>
-                <li>
-                    <a href="#multi-qubit-hadamard" aria-label="Multi-Qubit Hadamard">Multi-Qubit Hadamard</a></li>
-                <li>
-                    <a href="#key-result" aria-label="Key Result">Key Result</a></li></ul>
-                </li>
-                <li>
-                    <a href="#simons-algorithm" aria-label="Simons&rsquo; Algorithm">Simons&rsquo; Algorithm</a><ul>
-                        
-                <li>
-                    <a href="#simons-quantum-subroutine" aria-label="Simons&rsquo; Quantum Subroutine">Simons&rsquo; Quantum Subroutine</a></li>
-                <li>
-                    <a href="#analysis-1" aria-label="Analysis">Analysis</a></li>
-                <li>
-                    <a href="#classical-post-processing" aria-label="Classical Post-Processing">Classical Post-Processing</a></li></ul>
-                </li>
-                <li>
-                    <a href="#further-topics" aria-label="Further Topics">Further Topics</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
+  </header> 
   <div class="post-content"><p><em>Selected notes from COMS 4281 Introduction to Quantum Computing taught by Prof. Henry Yuen in Fall 2025.</em></p>
 <h2 id="qubits">Qubits<a hidden class="anchor" aria-hidden="true" href="#qubits">#</a></h2>
 <p>A <strong>quantum bit</strong> (or qubit) is the basic unit of information in quantum computing. Unlike classical bits that are exclusively 0 or 1, a qubit exists in a <strong>superposition</strong> of both states. However, upon measurement, the qubit collapses to a classical bit value.</p>
