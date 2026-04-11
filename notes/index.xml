@@ -6,8 +6,25 @@
     <description>Recent content in Notes on Nihal Jain</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Jan 2026 23:31:33 -0530</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 14:45:27 -0400</lastBuildDate>
     <atom:link href="https://nihaljn.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://nihaljn.github.io/notes/reinforcement-learning/</link>
+      <pubDate>Sun, 29 Mar 2026 14:45:27 -0400</pubDate>
+      <guid>https://nihaljn.github.io/notes/reinforcement-learning/</guid>
+      <description>&lt;h2 id=&#34;algorithms-for-training-llms&#34;&gt;Algorithms for training LLMs&lt;/h2&gt;
+&lt;p&gt;There are two frameworks that are commonly used for (post-)training LLMs with RL:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reinforcement Learning from Human Feedback (RLHF)&lt;/strong&gt; trains the LLM using RL with rewards derived from a reward model trained on human preferences;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Reinforcement Learning with Verifiable Rewards (RLVR)&lt;/strong&gt; trains the LLM using RL with rewards derived from rule-based or deterministic verifiers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The main difference between RLHF and RLVR lies in how we assign rewards: RLHF uses a learned reward model, while RLVR uses verifiable (or rules-based) rewards. We first sample a batch of prompts and generate a completion (or multiple completions) for each prompt in the batch using our current policy. A reward is computed for each completion, which can then be used to derive a policy update using our RL optimizer of choice (GRPO, PPO, etc.).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Quantum Computing</title>
       <link>https://nihaljn.github.io/notes/quantum-computing/</link>

@@ -1,0 +1,132 @@
+[
+  {
+    "URL": "https://arxiv.org/abs/1707.06347",
+    "author": [
+      {
+        "family": "Schulman",
+        "given": "John"
+      },
+      {
+        "family": "Wolski",
+        "given": "Filip"
+      },
+      {
+        "family": "Dhariwal",
+        "given": "Prafulla"
+      },
+      {
+        "family": "Radford",
+        "given": "Alec"
+      },
+      {
+        "family": "Klimov",
+        "given": "Oleg"
+      }
+    ],
+    "id": "ppo",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "title": "Proximal policy optimization algorithms",
+    "type": ""
+  },
+  {
+    "URL": "https://arxiv.org/abs/2203.02155",
+    "author": [
+      {
+        "family": "Ouyang",
+        "given": "Long"
+      },
+      {
+        "family": "Wu",
+        "given": "Jeff"
+      },
+      {
+        "family": "Jiang",
+        "given": "Xu"
+      },
+      {
+        "family": "Almeida",
+        "given": "Diogo"
+      },
+      {
+        "family": "Wainwright",
+        "given": "Carroll L."
+      },
+      {
+        "family": "Mishkin",
+        "given": "Pamela"
+      },
+      {
+        "family": "Zhang",
+        "given": "Chong"
+      },
+      {
+        "family": "Agarwal",
+        "given": "Sandhini"
+      },
+      {
+        "family": "Slama",
+        "given": "Katarina"
+      },
+      {
+        "family": "Ray",
+        "given": "Alex"
+      },
+      {
+        "family": "Schulman",
+        "given": "John"
+      },
+      {
+        "family": "Hilton",
+        "given": "Jacob"
+      },
+      {
+        "family": "Kelton",
+        "given": "Fraser"
+      },
+      {
+        "family": "Miller",
+        "given": "Luke"
+      },
+      {
+        "family": "Simens",
+        "given": "Maddie"
+      },
+      {
+        "family": "Askell",
+        "given": "Amanda"
+      },
+      {
+        "family": "Welinder",
+        "given": "Peter"
+      },
+      {
+        "family": "Christiano",
+        "given": "Paul"
+      },
+      {
+        "family": "Leike",
+        "given": "Jan"
+      },
+      {
+        "family": "Lowe",
+        "given": "Ryan"
+      }
+    ],
+    "id": "instructgpt",
+    "issued": {
+      "date-parts": [
+        [
+          2022
+        ]
+      ]
+    },
+    "title": "Training language models to follow instructions with human feedback",
+    "type": ""
+  }
+]
