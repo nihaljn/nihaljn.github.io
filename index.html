@@ -1,394 +1,81 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nihal Jain</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600&display=swap"><script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script><link rel="stylesheet" href="/_astro/Base.Co_45FgM.css"></head><body><div id="top" class="sentinel" aria-hidden="true"></div><header class="masthead"><div class="inner"><div class="bar"><a class="wordmark" href="/">Nihal Jain</a><nav id="site-nav"><a href="/research">Research</a><a href="/essays">Essays</a><a href="/notes">Notes</a></nav><div class="tools"><button class="theme" type="button" aria-label="Switch between light and dark"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 1.4a6.6 6.6 0 0 1 0 13.2z" fill="currentColor"></path></svg></button><button class="hamburger" type="button" hidden aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M1.5 4h13M1.5 8h13M1.5 12h13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"></path></svg></button></div></div></div></header><script>
+  document.querySelector('.theme').addEventListener('click', function () {
+    var root = document.documentElement;
+    var current =
+      root.dataset.theme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
 
-<head>
-	<meta name="generator" content="Hugo 0.150.0"><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Nihal Jain</title>
+  // Phone menu. State lives in the masthead's data-menu attribute, which the
+  // stylesheet only reads below the phone breakpoint.
+  (function () {
+    var head = document.querySelector('.masthead');
+    var burger = head.querySelector('.hamburger');
+    burger.hidden = false;
+    head.dataset.menu = 'closed';
 
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="canonical" href="https://nihaljn.github.io/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.9a5586d7727235993cf24865362b55f85ac19febc8103f52f0e934ce8a17b570.css" integrity="sha256-mlWG13JyNZk88khlNitV&#43;FrBn&#43;vIED9S8Ok0zooXtXA=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://nihaljn.github.io/columbia-favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://nihaljn.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://nihaljn.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://nihaljn.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://nihaljn.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://nihaljn.github.io/index.xml">
-<link rel="alternate" hreflang="en" href="https://nihaljn.github.io/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$']],
-      displayMath: [['$$', '$$']],
-      processEscapes: true,
-      processEnvironments: true,
-      tags: 'ams',
-      packages: {
-        '[+]': ['base', 'ams', 'newcommand', 'configmacros', 'action', 'color']
-      }
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
-    },
-    svg: {
-      fontCache: 'global',
-    },
-    loader: {
-      load: ['[tex]/color']
-    }
-  };
-</script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js" integrity="sha384-........" crossorigin="anonymous"></script>
-
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@100..900&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css" rel="stylesheet"><script>
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.getElementById('theme-toggle');
-    if (toggleButton) {
-        
-        const moonIcon = toggleButton.querySelector('#moon');
-        const sunIcon = toggleButton.querySelector('#sun');
-        
-        
-        const wrapper = document.createElement('div');
-        wrapper.className = 'theme-toggle-wrapper';
-        
-        
-        const menu = document.getElementById('menu');
-        if (menu) {
-            const menuItem = document.createElement('li');
-            menuItem.appendChild(wrapper);
-            menu.appendChild(menuItem);
-        } else {
-            
-            toggleButton.parentNode.insertBefore(wrapper, toggleButton);
-        }
-        
-        if (sunIcon) {
-            toggleButton.removeChild(sunIcon);
-            wrapper.appendChild(sunIcon);
-        }
-        
-        
-        wrapper.appendChild(toggleButton);
-
-        
-        if (moonIcon) {
-            toggleButton.removeChild(moonIcon);
-            wrapper.appendChild(moonIcon);
-        }
-        
-        
-        const thumb = document.createElement('div');
-        thumb.className = 'toggle-thumb';
-        toggleButton.appendChild(thumb);
-    }
-});
-</script><script>
-function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId + '-content');
-    const button = document.querySelector('.' + sectionId + '-toggle');
-    const arrow = document.getElementById(sectionId + '-arrow');
-    
-    if (content.classList.contains('expanded')) {
-        content.classList.remove('expanded');
-        button.classList.remove('expanded');
-        arrow.textContent = '>';
-    } else {
-        content.classList.add('expanded');
-        button.classList.add('expanded');
-        arrow.textContent = 'v';
-    }
-}
-
-
-function toggleMoreInfo() {
-    toggleSection('more-info');
-}
-</script>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BZ254GT1K"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-9BZ254GT1K');
-        }
-      </script><meta property="og:url" content="https://nihaljn.github.io/">
-  <meta property="og:site_name" content="Nihal Jain">
-  <meta property="og:title" content="Nihal Jain">
-  <meta property="og:locale" content="en-us">
-  <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nihal Jain">
-<meta name="twitter:description" content="">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nihal Jain",
-  "url": "https://nihaljn.github.io/",
-  "description": "",
-  "logo": "https://nihaljn.github.io/columbia-favicon.png",
-  "sameAs": [
-      "https://github.com/nihaljn", "https://x.com/nihal_jain_1", "https://scholar.google.com/citations?user=5b8b5V8AAAAJ\u0026hl=en"
-  ]
-}
-</script>
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
+    function set(open) {
+      head.dataset.menu = open ? 'open' : 'closed';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
 
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://nihaljn.github.io/" accesskey="h" title="Nihal Jain (Alt + H)">Nihal Jain</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://nihaljn.github.io/blog/" title="Blog">
-                    <span>Blog</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://nihaljn.github.io/notes/" title="Notes">
-                    <span>Notes</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://nihaljn.github.io/publications/" title="Publications">
-                    <span>Publications</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://nihaljn.github.io/shared/Nihal_Jain_CV.pdf" title="CV">
-                    <span>CV</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main"><div class="profile">
-    <div class="profile_inner">
-        
-        <div class="text-custom">
-            <article class="first-entry home-info">
-                <header class="entry-header">
-                    <h1>Hello! <span lang='hi'>नमस्ते।</span></h1>
-                </header>
-                <div class="post-content">
-                    I'm a first-year Computer Science Ph.D. student at Columbia University in New York City, where I'm advised by <a href="https://www.cs.columbia.edu/~suman/">Prof. Suman Jana</a>. 
-
-<br><br>
-
-My research broadly spans topics in machine learning and formal methods. My goal is to ensure reasoning in AI systems is <em>reliably</em> accurate, efficient and adaptive. Specifically, I'm interested in:
-<ol style="margin: 0 2em;">
-<li>Correctness and efficiency of LLM reasoning;</li>
-<li>Verifiability and safety of model behaviors.</li>
-</ol>
-
-<br>
-
-If you believe I can help you in any way or you'd just like to chat, message me at: <code>nihal.jain@columbia.edu</code>. 
-
-<br><br>
-
-I'm also available at the following channels:
-                </div>
-                <footer class="entry-footer">
-                    <div class="social-icons" >
-    <a href="https://github.com/nihaljn" target="_blank" rel="noopener noreferrer me"
-        title="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path
-        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-    </path>
-</svg>
-    </a>
-    <a href="https://x.com/nihal_jain_1" target="_blank" rel="noopener noreferrer me"
-        title="X/Twitter">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="currentColor" viewBox="0 0 24 24" stroke-width="0.3" fill="currentColor"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z">
-    </path>
-</svg>
-    </a>
-    <a href="https://scholar.google.com/citations?user=5b8b5V8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer me"
-        title="Google Scholar">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path
-        d="M5.242 13.769L0.5 9.5 12 1l11.5 9-5.242 3.769C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
-</svg>
-    </a>
-</div>
-
-                </footer>
-            </article> 
-            </div>
-
-        <div class="img-custom"
-                style="background-image: url('https://nihaljn.github.io/profile-0502.jpg');">
-        <img draggable="false" src="https://nihaljn.github.io/profile-0502.jpg" alt="Nihal Jain" title="Nihal Jain"
-            height="150" width="150" />
-        </div>
-
-        
-    </div>
-    
-    
-    
-
-    <div class="toggle-section">
-        <button class="toggle-button news-toggle" onclick="toggleSection('news')">
-            <strong>News</strong> <span id="news-arrow" class="toggle-arrow">></span>
-        </button>
-        <div id="news-content" class="toggle-content">
-            <div style="display: flex;">
-    <div style="width: 140px; flex-shrink: 0;"><strong>September 2025</strong></div>
-    <div>Started Ph.D. in Computer Science at Columbia University in New York City</div>
-</div>
-
-        </div>
-    </div>
-</div>
-
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2026 <a href="https://nihaljn.github.io/">Nihal Jain</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a><script>
-document.addEventListener("DOMContentLoaded", function() {
-    
-    const footerSpans = document.querySelectorAll("footer.footer span");
-    footerSpans.forEach(span => {
-    if (span.textContent.includes("Powered by")) {
-        
-        span.innerHTML = span.innerHTML.replace("Powered by", "Theme based on");
-    }
+    burger.addEventListener('click', function () {
+      set(head.dataset.menu !== 'open');
     });
-});
-</script>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
+    // Close on an outside click or Escape.
+    document.addEventListener('click', function (e) {
+      if (head.dataset.menu === 'open' && !head.contains(e.target)) set(false);
     });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') set(false);
+    });
+  })();
+</script><div class="shell"><h1 class="sr-only">Nihal Jain</h1><main><div class="post-header"><blockquote class="epigraph"><p lang="sa">सम्यग्दर्शनज्ञानचारित्राणि मोक्षमार्गः।</p><details><summary><cite>Tattvārtha Sūtra 1.1⁠</cite></summary><p class="gloss">[Right [world-view, knowledge, conduct]] is the path to liberation.</p></details></blockquote><div class="me"><img src="/photo.jpg" alt="Nihal Jain" width="132" height="132"><p class="elsewhere"><a href="mailto:nihal.jain@columbia.edu">Email</a><br><a href="https://x.com/nihal_jain_1">Twitter</a><br><a href="https://scholar.google.com/citations?user=5b8b5V8AAAAJ&amp;hl=en">Scholar</a><br><a href="https://github.com/nihaljn">GitHub</a><br><a href="/cv.pdf">CV</a></p></div></div><p>I’m a second-year Computer Science PhD student at Columbia University. My <a href="/research">research</a> focuses on continual learning and reasoning.</p>
+<p>Outside my research, I get interested in pretty much anything. I love to learn and take <a href="/notes">notes</a> as I go. I’m also trying to <a href="/essays">write</a> more.</p>
+<p>Before Columbia, I trained LLMs at AWS. And before that I studied at Carnegie Mellon and BITS Hyderabad. I’m very grateful for all the amazing people I’ve met along the way.</p>
+<p>I’m currently in New York and grew up in Mumbai.</p>
+<p>Please reach out if you’d like to chat about anything or if I can help you in any way. The best way is through <a href="mailto:nihal.jain@columbia.edu">email</a>.</p>
+<details>
+<summary>Now</summary>
+<p><em>Last updated: October 5, 2026</em></p>
+<p>I’m thinking about:</p>
+<ul>
+<li>Measuring <em>interestingness</em> of mathematical abstractions to set up search in Lean for this</li>
+<li>(Roughly) Gradient-free methods for learning, such as Hebbian learning and in-context learning</li>
+<li>Learning Lean more rigorously</li>
+</ul>
+<p>I’m reading Hitchhiker’s Guide to the Galaxy, The Handbook by Epictetus and Reinforcement Learning by Sutton and Barto.</p>
+</details>
+</main></div><button class="to-top" type="button" hidden aria-label="Back to top"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 13.5V3M3 7.5 8 2.5l5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"></path></svg></button><script>
+  // Show the button once the top marker is 400px out of view.
+  (function () {
+    var btn = document.querySelector('.to-top');
+    var top = document.getElementById('top');
+    if (!btn || !top || !('IntersectionObserver' in window)) return;
+    btn.hidden = false;
 
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
+    new IntersectionObserver(
+      function (entries) {
+        btn.classList.toggle('show', !entries[0].isIntersecting);
+      },
+      { rootMargin: '400px 0px 0px 0px' }
+    ).observe(top);
 
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+    // A scripted scroll ignores CSS scroll-behavior, so check the
+    // reduced-motion preference here.
+    btn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+    });
+  })();
+</script></body></html>

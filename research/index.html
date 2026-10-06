@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Research — Nihal Jain</title><meta name="description" content="Research by Nihal Jain, grouped by topic."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600&display=swap"><script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script><link rel="stylesheet" href="/_astro/Base.Co_45FgM.css"></head><body><div id="top" class="sentinel" aria-hidden="true"></div><header class="masthead"><div class="inner"><div class="bar"><a class="wordmark" href="/">Nihal Jain</a><nav id="site-nav"><a href="/research" aria-current="page">Research</a><a href="/essays">Essays</a><a href="/notes">Notes</a></nav><div class="tools"><button class="theme" type="button" aria-label="Switch between light and dark"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 1.4a6.6 6.6 0 0 1 0 13.2z" fill="currentColor"></path></svg></button><button class="hamburger" type="button" hidden aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M1.5 4h13M1.5 8h13M1.5 12h13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"></path></svg></button></div></div></div></header><script>
+  document.querySelector('.theme').addEventListener('click', function () {
+    var root = document.documentElement;
+    var current =
+      root.dataset.theme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // Phone menu. State lives in the masthead's data-menu attribute, which the
+  // stylesheet only reads below the phone breakpoint.
+  (function () {
+    var head = document.querySelector('.masthead');
+    var burger = head.querySelector('.hamburger');
+    burger.hidden = false;
+    head.dataset.menu = 'closed';
+
+    function set(open) {
+      head.dataset.menu = open ? 'open' : 'closed';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    burger.addEventListener('click', function () {
+      set(head.dataset.menu !== 'open');
+    });
+    // Close on an outside click or Escape.
+    document.addEventListener('click', function (e) {
+      if (head.dataset.menu === 'open' && !head.contains(e.target)) set(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') set(false);
+    });
+  })();
+</script><div class="shell"><main class="research"><nav class="toc" id="toc" aria-label="On this page"><ol><li><div class="row"><span class="mark"></span><a href="#reasoning">Reasoning</a></div></li><li><div class="row"><span class="mark"></span><a href="#large-language-models">Large Language Models</a></div></li><li><div class="row"><span class="mark"></span><a href="#representation-learning">Representation Learning</a></div></li></ol></nav><noscript><style>.toc ol ol { display: block; } .toc .mark { display: none; }</style></noscript><button class="toc-toggle" type="button" hidden aria-expanded="false" aria-controls="toc" aria-label="On this page"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M2 4h1.4M2 8h1.4M2 12h1.4M6 4h8M6 8h8M6 12h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"></path></svg></button><script>
+      /* Folds the outline and marks the section being read. A branch opens
+         when you scroll into its section and closes when you leave. Clicking a
+         marker toggles one branch until the next section change.
+      
+         The observer's root is a band just under the header, so the topmost
+         intersecting heading is the current section. With none in the band,
+         the last mark stands. */
+      document.addEventListener('DOMContentLoaded', function () {
+        var nav = document.querySelector('.toc');
+        var links = nav ? nav.querySelectorAll('a[href^="#"]') : [];
+        if (!links.length) return;
+
+        // Keep the li's class and its button's aria-expanded in sync.
+        function setOpen(li, open) {
+          li.classList.toggle('open', open);
+          var btn = li.querySelector(':scope > .row > button.mark');
+          if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        // Marker clicks toggle one branch and don't navigate.
+        nav.addEventListener('click', function (e) {
+          var btn = e.target.closest('button.mark');
+          if (!btn) return;
+          var li = btn.closest('li');
+          setOpen(li, !li.classList.contains('open'));
+        });
+
+        if (!('IntersectionObserver' in window)) return;
+
+        var map = {};
+        var heads = [];
+        links.forEach(function (a) {
+          var el = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+          if (el) { map[el.id] = a; heads.push(el); }
+        });
+        if (!heads.length) return;
+
+        var active = null;
+        function mark(el) {
+          if (el === active) return;
+          if (active) map[active.id].classList.remove('active');
+          active = el;
+          if (active) map[active.id].classList.add('active');
+          fold();
+        }
+
+        // Open only the branch containing the active entry.
+        function fold() {
+          var open = nav.querySelectorAll('li.open');
+          for (var i = 0; i < open.length; i++) setOpen(open[i], false);
+          if (!active) return;
+          var el = map[active.id].parentElement;
+          while (el && el !== nav) {
+            if (el.tagName === 'LI') setOpen(el, true);
+            el = el.parentElement;
+          }
+        }
+
+        var header = parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue('--header-h')
+        ) * parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+        var visible = new Set();
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) visible.add(e.target);
+              else visible.delete(e.target);
+            });
+            for (var i = 0; i < heads.length; i++) {
+              if (visible.has(heads[i])) { mark(heads[i]); return; }
+            }
+            // Nothing in the band: clear the mark only above the first heading.
+            if (heads[0].getBoundingClientRect().top > header) mark(null);
+          },
+          { rootMargin: -header + 'px 0px ' + -(window.innerHeight - header - 120) + 'px 0px' }
+        );
+        heads.forEach(function (h) { io.observe(h); });
+      });
+    </script><script>
+      // Phone toggle. State lives in main's data-toc attribute, which the
+      // stylesheet only reads below the phone breakpoint. Following a link
+      // closes the box.
+      document.addEventListener('DOMContentLoaded', function () {
+        var main = document.querySelector('main');
+        var btn = document.querySelector('.toc-toggle');
+        var nav = document.querySelector('.toc');
+        if (!main || !btn || !nav) return;
+        btn.hidden = false;
+        main.setAttribute('data-toc', 'closed');
+
+        function set(open) {
+          main.setAttribute('data-toc', open ? 'open' : 'closed');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        btn.addEventListener('click', function () {
+          set(main.getAttribute('data-toc') !== 'open');
+        });
+        nav.addEventListener('click', function (e) {
+          if (e.target.closest('a')) set(false);
+        });
+        document.addEventListener('click', function (e) {
+          if (
+            main.getAttribute('data-toc') === 'open' &&
+            !nav.contains(e.target) &&
+            !btn.contains(e.target)
+          ) set(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') set(false);
+        });
+      });
+    </script><div class="intro"><p>These days I’m most excited about efficient algorithms for online learning and reasoning that allow machines to adapt to changing environments.</p>
+<p>A selection of my current and past work is below. The full list is available on <a href="https://scholar.google.com/citations?user=5b8b5V8AAAAJ&amp;hl=en">Google Scholar</a>.</p>
+</div><section><h2 id="reasoning">Reasoning</h2><div class="summary"><p>I’m interested in general and efficient goal-directed search algorithms to solve hard problems, possibly through discovery of new insights.</p>
+</div><ul class="papers"><li><a class="title" href="#">LEVER: Adaptive Cost-Aware Proof Search Over AND/OR Graphs</a><span class="authors"><strong>Nihal Jain</strong>, Shuangjie Yao, Begum Cicekdag, et al.</span><span class="venue">NeurIPS Workshops on MATH-AI and VeriCodeGen 2026 · Under review at ICLR 2027</span></li></ul></section><section><h2 id="large-language-models">Large Language Models</h2><div class="summary"><p>My research focused on post-training LLMs at Amazon: SFT, RL and evaluations for coding assistants. I also worked on RAG for repo-level coding and reducing hallucinations.</p>
+</div><ul class="papers"><li><a class="title" href="https://arxiv.org/abs/2407.09726">On Mitigating Code LLM Hallucinations with API Documentation</a><span class="authors"><strong>Nihal Jain</strong>, Robert Kwiatkowski, Baishakhi Ray, et al.</span><span class="venue">ICSE SEIP 2025 · <a href="https://drive.google.com/file/d/1Zx6734Hq_-4U7xXy-r4XeFojBIIDCwJB/view?usp=sharing">Video</a> · <a href="https://docs.google.com/presentation/d/1E9lDK0GJkWvGjj1HOIyLNmw-fwLjAuj6YcqS_B7YlQI/edit?usp=sharing">Slides</a></span></li><li><a class="title" href="https://arxiv.org/abs/2506.12103">The Amazon Nova Family of Models</a><span class="authors">Amazon AGI (many contributors, including <strong>Nihal Jain</strong>)</span><span class="venue">Amazon Technical Report 2024</span></li><li><a class="title" href="https://aclanthology.org/2023.acl-long.355/">ContraCLM: Contrastive Learning For Causal Language Model</a><span class="authors"><strong>Nihal Jain</strong>*, Dejiao Zhang*, Wasi Uddin Ahmad*, et al.</span><span class="venue">ACL 2023 · <a href="https://arxiv.org/abs/2210.01185">arXiv</a> · <a href="https://github.com/amazon-science/ContraCLM">Code</a> · <a href="https://aclanthology.org/2023.acl-long.355.mp4">Video</a> · <a href="https://assets.underline.io/lecture/77027/poster_document/bb993935932ad05a4a1a0af9d9e43053.pdf">Poster</a></span></li></ul></section><section><h2 id="representation-learning">Representation Learning</h2><div class="summary"><p>I had a fantastic time working on unsupervised representation learning algorithms at Adobe Research. I’ve also worked on interpretability for these models.</p>
+</div><ul class="papers"><li><a class="title" href="https://arxiv.org/abs/2207.00056">MultiViz: Towards Visualizing and Understanding Multimodal Models</a><span class="authors">Paul Pu Liang, Yiwei Lyu, Gunjan Chhablani, <strong>Nihal Jain</strong>, et al.</span><span class="venue">ICLR 2023 · <a href="https://github.com/pliang279/MultiViz">Code</a></span></li><li><a class="title" href="https://dl.acm.org/doi/10.1145/3539597.3570425">Self-supervised Multi-view Disentanglement for Expansion of Visual Collections</a><span class="authors"><strong>Nihal Jain</strong>, Praneetha Vaddamanu, Paridhi Maheshwari, et al.</span><span class="venue">WSDM 2023 · <a href="https://arxiv.org/abs/2302.02249">arXiv</a></span></li></ul></section><p class="footnote">* Equal contribution.</p></main></div><button class="to-top" type="button" hidden aria-label="Back to top"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 13.5V3M3 7.5 8 2.5l5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"></path></svg></button><script>
+  // Show the button once the top marker is 400px out of view.
+  (function () {
+    var btn = document.querySelector('.to-top');
+    var top = document.getElementById('top');
+    if (!btn || !top || !('IntersectionObserver' in window)) return;
+    btn.hidden = false;
+
+    new IntersectionObserver(
+      function (entries) {
+        btn.classList.toggle('show', !entries[0].isIntersecting);
+      },
+      { rootMargin: '400px 0px 0px 0px' }
+    ).observe(top);
+
+    // A scripted scroll ignores CSS scroll-behavior, so check the
+    // reduced-motion preference here.
+    btn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+    });
+  })();
+</script></body></html>
