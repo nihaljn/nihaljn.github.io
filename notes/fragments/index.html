@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Fragments — Nihal Jain</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600&display=swap"><script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script><link rel="stylesheet" href="/_astro/Base.Co_45FgM.css"><link rel="stylesheet" href="/_astro/Entry.BnWWSZja.css"></head><body><div id="top" class="sentinel" aria-hidden="true"></div><header class="masthead"><div class="inner"><div class="bar"><a class="wordmark" href="/">Nihal Jain</a><nav id="site-nav"><a href="/research">Research</a><a href="/essays">Essays</a><a href="/notes" aria-current="page">Notes</a></nav><div class="tools"><button class="theme" type="button" aria-label="Switch between light and dark"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 1.4a6.6 6.6 0 0 1 0 13.2z" fill="currentColor"></path></svg></button><button class="hamburger" type="button" hidden aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M1.5 4h13M1.5 8h13M1.5 12h13" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="square"></path></svg></button></div></div></div></header><script>
+  document.querySelector('.theme').addEventListener('click', function () {
+    var root = document.documentElement;
+    var current =
+      root.dataset.theme ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // Phone menu. State lives in the masthead's data-menu attribute, which the
+  // stylesheet only reads below the phone breakpoint.
+  (function () {
+    var head = document.querySelector('.masthead');
+    var burger = head.querySelector('.hamburger');
+    burger.hidden = false;
+    head.dataset.menu = 'closed';
+
+    function set(open) {
+      head.dataset.menu = open ? 'open' : 'closed';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    burger.addEventListener('click', function () {
+      set(head.dataset.menu !== 'open');
+    });
+    // Close on an outside click or Escape.
+    document.addEventListener('click', function (e) {
+      if (head.dataset.menu === 'open' && !head.contains(e.target)) set(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') set(false);
+    });
+  })();
+</script><div class="shell"><main class="entry"><h1>Fragments</h1><ul class="list"><li><time class="when" datetime="2026-10-13T00:00:00.000Z">October 13, 2026</time><a href="/notes/fragments/renaming-things">(Re)Naming Things</a></li></ul></main><script>
+    /* On phones there is no margin, so each note is hidden and its reference
+       number becomes a toggle button. Above the breakpoint the numbers are
+       plain superscripts again. The width is watched, since a rotated phone
+       can cross the breakpoint. */
+    (function () {
+      var main = document.querySelector('main');
+      if (!main) return;
+      var notes = main.querySelectorAll('.sidenote');
+      if (!notes.length) return;
+
+      var mq = matchMedia('(max-width: 640px)');
+      var pairs = [];
+      notes.forEach(function (note, i) {
+        var ref = note.previousElementSibling;
+        if (!ref || !ref.classList.contains('ref')) return;
+        if (!note.id) note.id = 'sidenote-' + (i + 1);
+        pairs.push({ ref: ref, note: note });
+      });
+      if (!pairs.length) return;
+
+      function open(p, on) {
+        p.note.classList.toggle('open', on);
+        p.ref.setAttribute('aria-expanded', on ? 'true' : 'false');
+      }
+
+      pairs.forEach(function (p) {
+        function toggle() {
+          if (mq.matches) open(p, !p.note.classList.contains('open'));
+        }
+        p.ref.addEventListener('click', toggle);
+        // A span with role="button" needs its own keyboard handling.
+        p.ref.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
+      });
+
+      function sync() {
+        if (mq.matches) main.setAttribute('data-notes', 'collapsible');
+        else main.removeAttribute('data-notes');
+        pairs.forEach(function (p) {
+          if (mq.matches) {
+            p.ref.setAttribute('role', 'button');
+            p.ref.setAttribute('tabindex', '0');
+            p.ref.setAttribute('aria-controls', p.note.id);
+            p.ref.setAttribute('aria-expanded', p.note.classList.contains('open') ? 'true' : 'false');
+          } else {
+            p.ref.removeAttribute('role');
+            p.ref.removeAttribute('tabindex');
+            p.ref.removeAttribute('aria-controls');
+            p.ref.removeAttribute('aria-expanded');
+          }
+        });
+      }
+      sync();
+      mq.addEventListener('change', sync);
+    })();
+  </script></div><button class="to-top" type="button" hidden aria-label="Back to top"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 13.5V3M3 7.5 8 2.5l5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"></path></svg></button><script>
+  // Show the button once the top marker is 400px out of view.
+  (function () {
+    var btn = document.querySelector('.to-top');
+    var top = document.getElementById('top');
+    if (!btn || !top || !('IntersectionObserver' in window)) return;
+    btn.hidden = false;
+
+    new IntersectionObserver(
+      function (entries) {
+        btn.classList.toggle('show', !entries[0].isIntersecting);
+      },
+      { rootMargin: '400px 0px 0px 0px' }
+    ).observe(top);
+
+    // A scripted scroll ignores CSS scroll-behavior, so check the
+    // reduced-motion preference here.
+    btn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      });
+    });
+  })();
+</script></body></html>
